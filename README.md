@@ -27,7 +27,7 @@ umgesetzt. Der Code wurde manuell getestet und iterativ verbessert, unter andere
 ## Installation
 
 ```bash
-git clone https://github.com/DEINNAME/termassist.git
+git clone https://github.com/Tommyrostock/termassist.git
 cd termassist
 pip install -e . --break-system-packages
 termassist --install-hook
