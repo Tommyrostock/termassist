@@ -42,3 +42,33 @@ def test_ai_disabled_by_default_end_to_end():
         cli.main(["neustart"])
 
     mock_available.assert_not_called()
+
+
+def test_single_word_typo_returns_exit_code_two():
+    """When nothing was found in the database but the word looks like a typo
+    of a real installed command, cli.main must signal exit code 2 so
+    command_not_found_handle.sh knows to defer to apt's own spelling
+    correction instead of showing "nothing found".
+    """
+    with patch("terminalhelfer.matcher.match", return_value=([], "fallback")), patch(
+        "terminalhelfer.typo.ist_wahrscheinlich_tippfehler", return_value=True
+    ):
+        code = cli.main(["sl"])
+
+    assert code == 2
+
+
+def test_exit_code_is_one_when_typo_check_also_says_no():
+    """If neither the database nor the typo check find anything plausible,
+    cli.main must fall back to exit code 1 ("nothing found at all"), not 2.
+    The actual "multi-word input is never a typo" guard lives in typo.py
+    itself (see test_typo.py) - here we just verify cli.py wires the result
+    of that check through correctly.
+    """
+    with patch("terminalhelfer.matcher.match", return_value=([], "fallback")), patch(
+        "terminalhelfer.typo.ist_wahrscheinlich_tippfehler", return_value=False
+    ) as mock_typo:
+        code = cli.main(["alle dateien loeschen"])
+
+    mock_typo.assert_called_once_with("alle dateien loeschen")
+    assert code == 1

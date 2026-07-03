@@ -5,7 +5,7 @@ from terminalhelfer.fallback import fuzzy_search, load_commands
 
 def test_load_commands_returns_valid_entries():
     commands = load_commands()
-    assert len(commands) >= 150
+    assert len(commands) >= 200
     for entry in commands:
         assert "cmd" in entry
         assert "kurz" in entry
@@ -55,3 +55,42 @@ def test_results_only_contain_cmd_and_kurz():
     results = fuzzy_search("firewall aktivieren", commands)
     for entry in results:
         assert set(entry.keys()) == {"cmd", "kurz"}
+
+
+def test_slow_pc_question_finds_top_or_htop():
+    commands = load_commands()
+    results = fuzzy_search("warum ist mein pc so langsam", commands)
+
+    gefundene_befehle = {r["cmd"] for r in results}
+    assert gefundene_befehle & {"top", "htop"}
+
+
+def test_network_overview_prefers_ip_a_over_ping():
+    """Regression test: "netzwerk info" used to surface `ping ZIEL` (a
+    reachability test) instead of an actual overview command.
+    """
+    commands = load_commands()
+    results = fuzzy_search("netzwerk info", commands)
+
+    assert results
+    assert results[0]["cmd"] == "ip a"
+
+
+def test_free_up_disk_space_finds_cleanup_commands():
+    """Regression test: "mach mal platz frei" used to surface unrelated
+    entries like `crontab -e` and `last` instead of real disk-cleanup
+    commands.
+    """
+    commands = load_commands()
+    results = fuzzy_search("mach mal platz frei", commands)
+
+    gefundene_befehle = {r["cmd"] for r in results}
+    erwartete_befehle = {
+        "sudo apt autoremove",
+        "sudo apt clean",
+        "du -sh * | sort -rh | head -10",
+        "journalctl --vacuum-size=100M",
+    }
+    assert gefundene_befehle & erwartete_befehle
+    assert "crontab -e" not in gefundene_befehle
+    assert "last" not in gefundene_befehle

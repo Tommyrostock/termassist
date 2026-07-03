@@ -309,19 +309,19 @@
     "cmd": "ps aux",
     "kurz": "Zeigt alle laufenden Prozesse an",
     "kategorie": "Prozesse",
-    "keywords": ["laufende prozesse anzeigen", "ps aux", "prozesse anzeigen", "was laeuft gerade", "alle prozesse auflisten", "prozessliste anzeigen"]
+    "keywords": ["laufende prozesse anzeigen", "ps aux", "prozesse anzeigen", "was laeuft gerade", "alle prozesse auflisten", "prozessliste anzeigen", "welche programme laufen", "was laeuft im hintergrund alles"]
   },
   {
     "cmd": "top",
     "kurz": "Zeigt laufende Prozesse live mit Ressourcenverbrauch an",
     "kategorie": "Prozesse",
-    "keywords": ["prozesse live anzeigen", "top", "systemauslastung anzeigen", "cpu auslastung anzeigen", "laufende programme ueberwachen", "ressourcenverbrauch live sehen"]
+    "keywords": ["prozesse live anzeigen", "top", "systemauslastung anzeigen", "cpu auslastung anzeigen", "laufende programme ueberwachen", "ressourcenverbrauch live sehen", "warum ist mein pc so langsam", "computer ist langsam", "pc reagiert nicht mehr richtig"]
   },
   {
     "cmd": "htop",
     "kurz": "Zeigt laufende Prozesse uebersichtlich und interaktiv an",
     "kategorie": "Prozesse",
-    "keywords": ["htop", "prozesse uebersichtlich anzeigen", "schoene prozessliste", "interaktive prozessuebersicht", "htop starten", "farbige prozessansicht"]
+    "keywords": ["htop", "prozesse uebersichtlich anzeigen", "schoene prozessliste", "interaktive prozessuebersicht", "htop starten", "farbige prozessansicht", "warum ist mein pc so langsam", "rechner haengt"]
   },
   {
     "cmd": "kill PID",
@@ -399,7 +399,7 @@
     "cmd": "ip a",
     "kurz": "Zeigt die Netzwerkschnittstellen und IP-Adressen an",
     "kategorie": "Netzwerk",
-    "keywords": ["ip adresse anzeigen", "meine ip anzeigen", "ip a", "netzwerkschnittstellen anzeigen", "lokale ip herausfinden", "netzwerkinterfaces auflisten"]
+    "keywords": ["ip adresse anzeigen", "meine ip anzeigen", "ip a", "netzwerkschnittstellen anzeigen", "lokale ip herausfinden", "netzwerkinterfaces auflisten", "netzwerk uebersicht anzeigen", "netzwerk info"]
   },
   {
     "cmd": "ifconfig",
@@ -411,7 +411,7 @@
     "cmd": "hostname",
     "kurz": "Zeigt den Rechnernamen an",
     "kategorie": "Netzwerk",
-    "keywords": ["rechnername anzeigen", "hostname", "wie heisst dieser rechner", "computername anzeigen", "hostname des systems zeigen", "rechner identifikation anzeigen"]
+    "keywords": ["rechnername anzeigen", "hostname", "wie heisst dieser rechner", "computername anzeigen", "hostname des systems zeigen", "rechner identifikation anzeigen", "wie heisst mein rechner"]
   },
   {
     "cmd": "curl ZIEL",
@@ -525,7 +525,7 @@
     "cmd": "sudo apt autoremove",
     "kurz": "Entfernt nicht mehr benoetigte Pakete automatisch",
     "kategorie": "Paketverwaltung",
-    "keywords": ["nicht benoetigte pakete entfernen", "apt autoremove", "aufraeumen pakete", "ueberfluessige abhaengigkeiten entfernen", "system pakete aufraeumen", "verwaiste pakete loeschen"]
+    "keywords": ["nicht benoetigte pakete entfernen", "apt autoremove", "aufraeumen pakete", "ueberfluessige abhaengigkeiten entfernen", "system pakete aufraeumen", "verwaiste pakete loeschen", "mach mal platz frei", "speicherplatz freimachen"]
   },
   {
     "cmd": "apt search PAKETNAME",
@@ -976,5 +976,239 @@
     "kurz": "Schreibt eine Ausgabe gleichzeitig in eine Datei und auf den Bildschirm",
     "kategorie": "Textverarbeitung",
     "keywords": ["ausgabe in datei und terminal", "tee befehl", "ausgabe duplizieren", "ausgabe gleichzeitig speichern und anzeigen", "pipe ausgabe in datei schreiben", "output mitschneiden"]
+  },
+  {
+    "cmd": "hostname -I",
+    "kurz": "Zeigt die eigene IP-Adresse im lokalen Netzwerk an",
+    "kategorie": "Netzwerk",
+    "keywords": ["welche ip habe ich", "meine ip adresse anzeigen", "lokale ip herausfinden", "hostname -I", "ip adresse kurz anzeigen", "eigene netzwerkadresse zeigen", "wie lautet meine ip"]
+  },
+  {
+    "cmd": "nmcli device status",
+    "kurz": "Zeigt den Status aller Netzwerkgeraete an (z.B. ob WLAN verbunden ist)",
+    "kategorie": "Netzwerk",
+    "keywords": ["netzwerkgeraete status", "nmcli device status", "ist wlan verbunden", "netzwerkverbindung status anzeigen", "welche netzwerkgeraete gibt es", "verbindungsstatus pruefen", "netzwerk uebersicht anzeigen"]
+  },
+  {
+    "cmd": "nmcli radio wifi",
+    "kurz": "Zeigt an, ob WLAN aktiviert ist",
+    "kategorie": "Netzwerk",
+    "keywords": ["ist mein wlan an", "wlan status pruefen", "nmcli radio wifi", "ist wifi eingeschaltet", "funkstatus wlan anzeigen", "drahtlosnetzwerk status", "wlan aktiv oder nicht"]
+  },
+  {
+    "cmd": "iwconfig",
+    "kurz": "Zeigt Informationen zu drahtlosen Netzwerkschnittstellen an",
+    "kategorie": "Netzwerk",
+    "keywords": ["wlan informationen anzeigen", "iwconfig", "wireless status", "wlan verbindung details", "signalstaerke wlan anzeigen", "drahtlose netzwerkkarte info"]
+  },
+  {
+    "cmd": "ip route",
+    "kurz": "Zeigt die Routing-Tabelle des Systems an",
+    "kategorie": "Netzwerk",
+    "keywords": ["routing tabelle anzeigen", "ip route", "netzwerkrouten anzeigen", "standardgateway anzeigen", "wie geht mein traffic raus", "routen des systems zeigen"]
+  },
+  {
+    "cmd": "curl ifconfig.me",
+    "kurz": "Zeigt die oeffentliche (externe) IP-Adresse an",
+    "kategorie": "Netzwerk",
+    "keywords": ["oeffentliche ip anzeigen", "externe ip herausfinden", "meine oeffentliche ip", "curl ifconfig.me", "welche ip sieht das internet von mir", "wan ip anzeigen"]
+  },
+  {
+    "cmd": "nmcli connection show",
+    "kurz": "Zeigt alle bekannten Netzwerkverbindungen an",
+    "kategorie": "Netzwerk",
+    "keywords": ["netzwerkverbindungen anzeigen nmcli", "nmcli connection show", "gespeicherte wlan verbindungen", "bekannte verbindungen auflisten", "wlan profile anzeigen", "netzwerk profile liste"]
+  },
+  {
+    "cmd": "host ZIEL",
+    "kurz": "Loest einen Domainnamen einfach zu einer IP-Adresse auf",
+    "kategorie": "Netzwerk",
+    "keywords": ["domain einfach aufloesen", "host befehl", "schnelle dns abfrage", "ip zu domain einfach", "host kommando dns", "domainname pruefen einfach"]
+  },
+  {
+    "cmd": "sudo apt clean",
+    "kurz": "Loescht heruntergeladene Paketdateien aus dem apt-Cache",
+    "kategorie": "Paketverwaltung",
+    "keywords": ["apt cache leeren", "sudo apt clean", "speicherplatz freimachen pakete", "heruntergeladene pakete loeschen", "apt aufraeumen", "platz freimachen apt cache", "mach mal platz frei"]
+  },
+  {
+    "cmd": "sudo apt-mark hold PAKETNAME",
+    "kurz": "Verhindert, dass ein Paket bei Updates aktualisiert wird",
+    "kategorie": "Paketverwaltung",
+    "keywords": ["paket update verhindern", "apt-mark hold", "paket version festhalten", "kein automatisches update fuer paket", "paket sperren vor updates", "update ausschliessen fuer paket"]
+  },
+  {
+    "cmd": "du -sh * | sort -rh | head -10",
+    "kurz": "Findet die groessten Dateien und Ordner im aktuellen Verzeichnis",
+    "kategorie": "Speicherplatz",
+    "keywords": ["groesste ordner finden", "was frisst speicherplatz", "platz belegende dateien finden", "mach mal platz frei", "speicherfresser finden", "welche ordner sind am groessten", "festplatte aufraeumen grosse dateien"]
+  },
+  {
+    "cmd": "journalctl --vacuum-size=100M",
+    "kurz": "Begrenzt die Groesse der systemd-Journal-Logs, um Speicherplatz freizugeben",
+    "kategorie": "Speicherplatz",
+    "keywords": ["journal logs verkleinern", "journalctl vacuum", "systemd logs aufraeumen", "log speicherplatz freigeben", "alte logs loeschen platz", "journal groesse begrenzen", "mach mal platz frei"]
+  },
+  {
+    "cmd": "sudo rm -rf /var/log/*.gz",
+    "kurz": "Loescht komprimierte alte Log-Dateien unwiderruflich",
+    "kategorie": "Speicherplatz",
+    "keywords": ["alte logs loeschen", "komprimierte log dateien entfernen", "log dateien aufraeumen", "var log gz loeschen", "platz freimachen logs", "alte gz logs entfernen"]
+  },
+  {
+    "cmd": "ncdu",
+    "kurz": "Zeigt Speicherplatzverbrauch interaktiv und uebersichtlich an",
+    "kategorie": "Speicherplatz",
+    "keywords": ["speicherplatz interaktiv anzeigen", "ncdu", "festplattenbelegung uebersichtlich", "interaktive speicheranalyse", "welche ordner belegen platz interaktiv", "festplatte visuell analysieren"]
+  },
+  {
+    "cmd": "lspci",
+    "kurz": "Zeigt alle PCI-Geraete an (Grafikkarte, Netzwerkkarte, etc.)",
+    "kategorie": "System",
+    "keywords": ["pci geraete anzeigen", "lspci", "hardware pci auflisten", "welche hardware ist verbaut", "grafikkarte anzeigen", "pci bus geraete"]
+  },
+  {
+    "cmd": "lsusb",
+    "kurz": "Zeigt alle angeschlossenen USB-Geraete an",
+    "kategorie": "System",
+    "keywords": ["usb geraete anzeigen", "lsusb", "angeschlossene usb geraete", "usb hardware auflisten", "was ist am usb angeschlossen", "usb bus geraete"]
+  },
+  {
+    "cmd": "dmesg",
+    "kurz": "Zeigt Kernel- und Systemmeldungen an",
+    "kategorie": "System",
+    "keywords": ["kernel meldungen anzeigen", "dmesg", "systemmeldungen anzeigen", "hardware fehler anzeigen", "bootmeldungen anzeigen", "kernel log anzeigen"]
+  },
+  {
+    "cmd": "cat /proc/cpuinfo",
+    "kurz": "Zeigt detaillierte Informationen zur CPU an",
+    "kategorie": "System",
+    "keywords": ["cpu details anzeigen", "proc cpuinfo", "prozessor informationen komplett", "welche cpu habe ich", "cpu modell anzeigen", "prozessor spezifikationen"]
+  },
+  {
+    "cmd": "cat /proc/meminfo",
+    "kurz": "Zeigt detaillierte Informationen zum Arbeitsspeicher an",
+    "kategorie": "System",
+    "keywords": ["ram details anzeigen", "proc meminfo", "arbeitsspeicher informationen komplett", "speicher spezifikationen anzeigen", "wie viel ram habe ich genau", "memory info"]
+  },
+  {
+    "cmd": "sudo update-alternatives --config BEFEHL",
+    "kurz": "Waehlt zwischen mehreren installierten Alternativen fuer einen Befehl",
+    "kategorie": "System",
+    "keywords": ["alternative version auswaehlen", "update-alternatives", "standardprogramm festlegen", "zwischen versionen wechseln", "welches programm soll standard sein", "alternative auswaehlen"]
+  },
+  {
+    "cmd": "sudo systemctl daemon-reload",
+    "kurz": "Laedt die systemd-Konfiguration neu",
+    "kategorie": "System",
+    "keywords": ["systemd neu laden", "daemon-reload", "systemctl konfiguration aktualisieren", "neue service datei erkennen lassen", "systemd config reload", "dienstkonfiguration neu einlesen"]
+  },
+  {
+    "cmd": "systemctl list-units --failed",
+    "kurz": "Zeigt fehlgeschlagene Systemdienste an",
+    "kategorie": "System",
+    "keywords": ["fehlgeschlagene dienste anzeigen", "systemctl failed", "welche dienste sind abgestuerzt", "dienste die nicht laufen", "fehler bei diensten finden", "kaputte services anzeigen"]
+  },
+  {
+    "cmd": "vmstat",
+    "kurz": "Zeigt eine Systemuebersicht ueber Prozesse, Speicher und CPU an",
+    "kategorie": "Prozesse",
+    "keywords": ["systemuebersicht anzeigen", "vmstat", "speicher und cpu statistik", "system performance uebersicht", "auslastung im ueberblick", "vmstat befehl"]
+  },
+  {
+    "cmd": "sudo lsof -i :PORT",
+    "kurz": "Zeigt an, welcher Prozess einen bestimmten Port belegt",
+    "kategorie": "Prozesse",
+    "keywords": ["welcher prozess nutzt diesen port", "lsof -i port", "port belegung pruefen", "was blockiert den port", "prozess auf port finden", "port bereits belegt herausfinden"]
+  },
+  {
+    "cmd": "readlink -f DATEI",
+    "kurz": "Loest Symlinks vollstaendig auf und zeigt den echten Pfad",
+    "kategorie": "Dateisystem",
+    "keywords": ["symlink aufloesen", "readlink -f", "echten pfad hinter verknuepfung finden", "wohin zeigt der link", "tatsaechliches ziel eines links", "link ziel anzeigen"]
+  },
+  {
+    "cmd": "md5sum DATEI",
+    "kurz": "Berechnet die MD5-Pruefsumme einer Datei",
+    "kategorie": "Dateisystem",
+    "keywords": ["md5 pruefsumme berechnen", "md5sum", "dateiintegritaet pruefen md5", "checksum erstellen", "hash einer datei berechnen", "md5 hash generieren"]
+  },
+  {
+    "cmd": "sha256sum DATEI",
+    "kurz": "Berechnet die SHA256-Pruefsumme einer Datei",
+    "kategorie": "Dateisystem",
+    "keywords": ["sha256 pruefsumme berechnen", "sha256sum", "dateiintegritaet pruefen sha256", "sichere pruefsumme erstellen", "hash sha256 generieren", "checksum sha256"]
+  },
+  {
+    "cmd": "xdg-open DATEI",
+    "kurz": "Oeffnet eine Datei mit dem Standardprogramm",
+    "kategorie": "Dateisystem",
+    "keywords": ["datei mit standardprogramm oeffnen", "xdg-open", "datei doppelklick aequivalent terminal", "oeffnen wie im dateimanager", "passende anwendung oeffnen", "datei automatisch oeffnen"]
+  },
+  {
+    "cmd": "sudo visudo",
+    "kurz": "Bearbeitet sicher die sudoers-Datei fuer sudo-Berechtigungen",
+    "kategorie": "Berechtigungen",
+    "keywords": ["sudoers datei bearbeiten", "visudo", "sudo rechte konfigurieren", "wer darf sudo nutzen", "sudo berechtigungen aendern", "sudoers sicher editieren"]
+  },
+  {
+    "cmd": "sudo passwd -l BENUTZER",
+    "kurz": "Sperrt das Konto eines Benutzers",
+    "kategorie": "Benutzerverwaltung",
+    "keywords": ["benutzerkonto sperren", "passwd -l", "account sperren", "benutzer deaktivieren ohne loeschen", "login verhindern", "konto blockieren"]
+  },
+  {
+    "cmd": "chsh -s /bin/bash",
+    "kurz": "Aendert die Standard-Shell des aktuellen Benutzers",
+    "kategorie": "Benutzerverwaltung",
+    "keywords": ["standard shell aendern", "chsh", "shell wechseln dauerhaft", "login shell aendern", "bash als standard setzen", "shell des benutzers aendern"]
+  },
+  {
+    "cmd": "sudo ufw reset",
+    "kurz": "Setzt alle Firewall-Regeln zurueck",
+    "kategorie": "Firewall",
+    "keywords": ["firewall zuruecksetzen", "ufw reset", "alle regeln loeschen firewall", "firewall komplett neu", "ufw regeln entfernen", "firewall auf standard zuruecksetzen"]
+  },
+  {
+    "cmd": "7z x DATEI.7z",
+    "kurz": "Entpackt ein 7z-Archiv",
+    "kategorie": "Archive",
+    "keywords": ["7z entpacken", "7zip archiv oeffnen", "7z datei extrahieren", "siebenzip entpacken", "7z auspacken", "archiv 7z oeffnen"]
+  },
+  {
+    "cmd": "echo 'BEFEHL' | at TERMIN",
+    "kurz": "Fuehrt einen Befehl einmalig zu einem spaeteren Zeitpunkt aus",
+    "kategorie": "Cron",
+    "keywords": ["einmalige aufgabe planen", "at befehl", "spaeter einmalig ausfuehren", "zeitgesteuerte einmalige aufgabe", "befehl fuer spaeter einplanen", "at kommando verwenden"]
+  },
+  {
+    "cmd": "git stash",
+    "kurz": "Speichert nicht committete Aenderungen vorlaeufig zwischen",
+    "kategorie": "Git",
+    "keywords": ["aenderungen zwischenspeichern git", "git stash", "nicht fertige aenderungen beiseite legen", "git stash verwenden", "aenderungen kurz wegpacken", "work in progress speichern git"]
+  },
+  {
+    "cmd": "git merge ZIEL",
+    "kurz": "Fuehrt einen anderen Branch in den aktuellen zusammen",
+    "kategorie": "Git",
+    "keywords": ["branches zusammenfuehren", "git merge", "zweig einbinden", "aenderungen aus anderem branch uebernehmen", "branch mergen", "git branches vereinen"]
+  },
+  {
+    "cmd": "git remote -v",
+    "kurz": "Zeigt die verknuepften Remote-Repositories an",
+    "kategorie": "Git",
+    "keywords": ["remote repository anzeigen", "git remote -v", "verknuepfte server anzeigen", "woher kommt dieses repo", "remote url anzeigen", "git remote liste"]
+  },
+  {
+    "cmd": "column -t DATEI",
+    "kurz": "Formatiert Textspalten sauber ausgerichtet",
+    "kategorie": "Textverarbeitung",
+    "keywords": ["spalten ausrichten", "column -t", "text tabellarisch anzeigen", "tabellenformat im terminal", "spalten formatieren", "ausgabe schoen ausrichten"]
+  },
+  {
+    "cmd": "echo TEXT | xargs BEFEHL",
+    "kurz": "Uebergibt Ausgaben als Argumente an einen anderen Befehl",
+    "kategorie": "Textverarbeitung",
+    "keywords": ["ausgabe als argument uebergeben", "xargs befehl", "pipe ausgabe weiterreichen", "argumente aus eingabe bauen", "mehrere dateien gleichzeitig verarbeiten", "xargs verwenden"]
   }
 ]

@@ -58,10 +58,19 @@ Bash bietet die eingebaute Funktion `command_not_found_handle`, die automatisch 
 eingetippter Befehl nicht gefunden wird (derselbe Mechanismus, ueber den Ubuntu normalerweise "Command 'xyz'
 not found, but can be installed with: ..." anzeigt). `--install-hook` erweitert genau diese Funktion:
 
-1. Ist ein passendes apt-Paket bekannt, siehst du weiterhin den gewohnten Ubuntu-Hinweis dazu.
-2. Andernfalls fragt terminalhelfer im Hintergrund seine Datenbank nach passenden Befehlen und zeigt dir die
-   gewohnte Pfeiltasten-Auswahl direkt im Terminal an – inklusive Sicherheitsabfrage vor der Ausfuehrung.
-3. Nur wenn auch terminalhelfer nichts Passendes findet, siehst du die normale "Befehl nicht gefunden"-Meldung.
+1. **terminalhelfer wird immer zuerst befragt**, egal ob die Eingabe aus einem oder mehreren Woertern besteht.
+   Findet es einen Datenbanktreffer oder erkennt es einen bereits gueltigen Befehl, siehst du direkt die
+   gewohnte Pfeiltasten-Auswahl bzw. Sicherheitsabfrage – fertig.
+2. Nur bei einem **einzelnen Wort ohne Datenbanktreffer** prueft terminalhelfer zusaetzlich, ob das eher wie ein
+   simpler Tippfehler eines echten Programms aussieht (z.B. `sl` statt `ls`). In diesem Fall zeigt terminalhelfer
+   selbst nichts an, sondern ueberlaesst das dem gewohnten apt-Hinweis (`sudo apt install ...`) – dafuer ist apts
+   eigene Rechtschreibkorrektur besser geeignet als die intent-basierte Datenbank von terminalhelfer.
+3. Nur wenn weder terminalhelfer noch apt etwas Sinnvolles finden, siehst du die normale "Befehl nicht
+   gefunden"-Meldung.
+
+Mehrwortige Eingaben wie `firewall ausschalten` gehen also **nie** an apt (das haette frueher fast immer eine
+falsche Paketvermutung geliefert), sondern werden ausschliesslich von terminalhelfers eigener Datenbank
+beantwortet.
 
 **Deinstallieren:** Oeffne `~/.bashrc` und entferne den Block zwischen den Kommentaren
 `# >>> terminalhelfer >>>` und `# <<< terminalhelfer <<<`, dann `source ~/.bashrc` erneut ausfuehren.

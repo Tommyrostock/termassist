@@ -6,8 +6,19 @@ import argparse
 import sys
 from typing import Any
 
-from . import __version__, config, direct, hook_installer, matcher, ollama_client, ui
+from . import __version__, config, direct, hook_installer, matcher, ollama_client, typo, ui
 from .fallback import load_commands
+
+# Exit codes for the single-shot mode, consumed by command_not_found_handle.sh:
+#   0 = something actionable was shown (direct command or DB/AI suggestion)
+#   1 = nothing relevant found at all
+#   2 = looks like a single-word typo of a real installed command (e.g. "sl"
+#       for "ls") rather than a natural-language request - our intent-based
+#       database isn't the right tool for that, so the shell script should
+#       let apt's own "did you mean" logic take over instead.
+EXIT_GEFUNDEN = 0
+EXIT_NICHTS_GEFUNDEN = 1
+EXIT_VERMUTLICH_TIPPFEHLER = 2
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -62,22 +73,33 @@ def _handle_single(
     use_ai: bool,
     model: str | None,
     debug: bool,
-) -> bool:
-    """Process a single query end-to-end. Returns True if something actionable
-    (a direct command or at least one suggestion) was shown to the user.
+) -> int:
+    """Process a single query end-to-end. Returns one of the EXIT_* codes
+    above, so command_not_found_handle.sh can decide what to do next.
     """
     query = query.strip()
     if not query:
-        return False
+        return EXIT_NICHTS_GEFUNDEN
 
     if direct.ist_direkter_befehl(query):
         ui.confirm_and_execute(query)
-        return True
+        return EXIT_GEFUNDEN
 
     results, mode = matcher.match(query, commands=commands, use_ai=use_ai, model=model, debug=debug)
-    ui.show_mode_banner(mode)
-    ui.handle_results(results)
-    return bool(results)
+    if results:
+        ui.show_mode_banner(mode)
+        ui.handle_results(results)
+        return EXIT_GEFUNDEN
+
+    if typo.ist_wahrscheinlich_tippfehler(query):
+        if debug:
+            print(
+                f"[debug] '{query}' sieht wie ein Tippfehler eines echten Befehls aus, verweise an apt.",
+                file=sys.stderr,
+            )
+        return EXIT_VERMUTLICH_TIPPFEHLER
+
+    return EXIT_NICHTS_GEFUNDEN
 
 
 def interactive_loop(commands: list[dict[str, Any]], use_ai: bool, model: str | None, debug: bool) -> None:
@@ -139,13 +161,12 @@ def main(argv: list[str] | None = None) -> int:
 
     try:
         if args.eingabe:
-            gefunden = _handle_single(args.eingabe, commands, use_ai, args.model, args.debug)
-            return 0 if gefunden else 1
+            return _handle_single(args.eingabe, commands, use_ai, args.model, args.debug)
         interactive_loop(commands, use_ai=use_ai, model=args.model, debug=args.debug)
     except KeyboardInterrupt:
         ui.console.print("\n[dim]Bis bald![/dim]")
 
-    return 0
+    return EXIT_GEFUNDEN
 
 
 if __name__ == "__main__":
