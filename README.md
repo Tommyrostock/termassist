@@ -7,7 +7,7 @@ passenden Befehl dafür und führt **nie automatisch** etwas aus, ohne dass du e
 ## Wie ist das entstanden?
 
 Dieses Projekt ist in Zusammenarbeit mit KI entstanden: Konzept und Testing stammen von
-[DEIN NAME/GITHUB-USERNAME], die Implementierung wurde gemeinsam mit Claude (Anthropic) über Claude Code
+Tommyrostock, die Implementierung wurde gemeinsam mit Claude (Anthropic) über Claude Code
 umgesetzt. Der Code wurde manuell getestet und iterativ verbessert, unter anderem in einer echten Ubuntu-VM.
 
 <!-- TODO: Screenshot/GIF einfuegen -->
