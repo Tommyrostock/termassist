@@ -10,15 +10,21 @@ from . import fallback, ollama_client
 def match(
     query: str,
     commands: list[dict[str, Any]] | None = None,
-    use_ai: bool = True,
+    use_ai: bool = False,
     model: str | None = None,
     debug: bool = False,
 ) -> tuple[list[dict[str, Any]], str]:
     """Find the best matching commands for a free-text query.
 
-    Tries the local Ollama model first (if enabled and reachable), validates
-    its suggestions against the real database to guard against hallucinated
-    commands, and falls back to the offline fuzzy matcher whenever the AI
+    The local, offline fuzzy database search is the primary strategy and runs
+    for every query - it works on any hardware and needs no network or extra
+    CPU load. Ollama is only consulted afterwards, to *refine* that result,
+    and only if the caller explicitly opted in via ``use_ai`` (set from the
+    ``--ki`` flag or a persisted setting - see ``config.py``). Without that
+    opt-in, Ollama is never contacted, even if it happens to be running.
+
+    Any AI suggestion is validated against the real database to guard against
+    hallucinated commands, and the offline result is used whenever the AI
     path is unavailable, fails, times out, or yields zero valid hits.
 
     Returns a tuple of ``(results, mode)`` where ``mode`` is ``"ki"`` or
@@ -28,6 +34,8 @@ def match(
     if commands is None:
         commands = fallback.load_commands()
 
+    fallback_results = fallback.fuzzy_search(query, commands, limit=5)
+
     if use_ai and ollama_client.is_available():
         raw_cmds = ollama_client.query_ollama(query, commands, model=model, debug=debug)
         if raw_cmds:
@@ -35,7 +43,7 @@ def match(
             if validated:
                 return validated[:5], "ki"
 
-    return fallback.fuzzy_search(query, commands, limit=5), "fallback"
+    return fallback_results, "fallback"
 
 
 def _validate(cmd_strings: list[str], commands: list[dict[str, Any]]) -> list[dict[str, Any]]:

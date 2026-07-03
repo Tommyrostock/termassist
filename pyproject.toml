@@ -36,4 +36,4 @@ terminalhelfer = "terminalhelfer.cli:main"
 include = ["terminalhelfer*"]
 
 [tool.setuptools.package-data]
-terminalhelfer = ["data/*.json"]
+terminalhelfer = ["data/*.json", "shell/*.sh"]

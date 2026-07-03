@@ -23,6 +23,14 @@ except ImportError:  # pragma: no cover - exercised only without rapidfuzz insta
 
 DEFAULT_DB_PATH = Path(__file__).parent / "data" / "commands.json"
 
+# Below this score, a match is considered noise rather than a real suggestion.
+# Genuine queries (even single keywords) reliably score 50+ against their
+# intended entry; unrelated gibberish tops out around 40-45 (see fallback
+# scoring notes). This lets fuzzy_search return an empty list for input that
+# doesn't match anything - important for command_not_found_handle, which uses
+# an empty result to decide whether to fall back to the plain shell error.
+MIN_RELEVANCE_SCORE = 45.0
+
 
 def load_commands(db_path: Path | str | None = None) -> list[dict[str, Any]]:
     """Load the curated command database from disk."""
@@ -95,7 +103,7 @@ def fuzzy_search(
 
     results = []
     for entry, score in scored[:limit]:
-        if score <= 0:
+        if score < MIN_RELEVANCE_SCORE:
             continue
         results.append({"cmd": entry["cmd"], "kurz": entry["kurz"]})
     return results

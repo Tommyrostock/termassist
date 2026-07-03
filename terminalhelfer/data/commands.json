@@ -3,732 +3,978 @@
     "cmd": "sudo reboot",
     "kurz": "Startet den Computer sofort neu",
     "kategorie": "System",
-    "keywords": ["neustart", "neu starten", "computer neustarten", "reboot", "rechner neu starten", "pc neu starten", "neu hochfahren"]
+    "keywords": ["neustart", "neu starten", "computer neustarten", "rechner neu starten", "pc neu starten", "neu hochfahren", "reboot", "system neustarten"]
   },
   {
     "cmd": "sudo shutdown now",
     "kurz": "Faehrt den Computer sofort herunter",
     "kategorie": "System",
-    "keywords": ["herunterfahren", "ausschalten", "shutdown", "pc ausschalten", "rechner ausschalten", "computer ausschalten"]
+    "keywords": ["herunterfahren", "ausschalten", "computer ausschalten", "rechner ausschalten", "pc ausschalten", "shutdown", "abschalten", "system beenden"]
   },
   {
     "cmd": "sudo poweroff",
     "kurz": "Schaltet den Computer komplett aus",
     "kategorie": "System",
-    "keywords": ["poweroff", "strom aus", "komplett ausschalten", "rechner abschalten"]
+    "keywords": ["poweroff", "komplett ausschalten", "strom aus", "rechner abschalten", "hardware ausschalten", "ganz ausschalten"]
   },
   {
     "cmd": "sudo shutdown -h +10",
     "kurz": "Faehrt den Computer in 10 Minuten herunter",
     "kategorie": "System",
-    "keywords": ["herunterfahren verzoegert", "shutdown timer", "in 10 minuten ausschalten"]
+    "keywords": ["herunterfahren verzoegert", "in 10 minuten ausschalten", "shutdown timer", "geplantes herunterfahren", "spaeter ausschalten", "zeitgesteuert herunterfahren"]
+  },
+  {
+    "cmd": "sudo shutdown -c",
+    "kurz": "Bricht ein geplantes Herunterfahren ab",
+    "kategorie": "System",
+    "keywords": ["shutdown abbrechen", "herunterfahren abbrechen", "geplantes shutdown stoppen", "shutdown canceln", "herunterfahren stoppen", "abschalten verhindern"]
   },
   {
     "cmd": "uptime",
     "kurz": "Zeigt an, wie lange der Rechner schon laeuft",
     "kategorie": "System",
-    "keywords": ["laufzeit", "uptime", "wie lange laeuft der rechner", "systemlaufzeit"]
+    "keywords": ["laufzeit anzeigen", "wie lange laeuft der rechner", "systemlaufzeit", "uptime", "seit wann laeuft der pc", "betriebszeit anzeigen"]
   },
   {
     "cmd": "uname -a",
     "kurz": "Zeigt Informationen ueber das Betriebssystem und den Kernel",
     "kategorie": "System",
-    "keywords": ["systeminfo", "kernel version", "betriebssystem info", "uname"]
+    "keywords": ["systeminfo anzeigen", "kernel version anzeigen", "betriebssystem info", "uname", "welcher kernel laeuft", "systemdetails anzeigen"]
   },
   {
     "cmd": "lsb_release -a",
     "kurz": "Zeigt die genaue Linux-Distribution und Version an",
     "kategorie": "System",
-    "keywords": ["distribution version", "welche linux version", "lsb release", "ubuntu version"]
+    "keywords": ["distribution version anzeigen", "welche linux version", "lsb release", "ubuntu version anzeigen", "linux distribution herausfinden", "betriebssystemversion pruefen"]
   },
   {
     "cmd": "date",
     "kurz": "Zeigt das aktuelle Datum und die Uhrzeit an",
     "kategorie": "System",
-    "keywords": ["datum", "uhrzeit", "date", "wie spaet ist es"]
+    "keywords": ["datum anzeigen", "uhrzeit anzeigen", "date", "wie spaet ist es", "welcher tag ist heute", "aktuelles datum anzeigen"]
   },
   {
     "cmd": "free -h",
     "kurz": "Zeigt den verfuegbaren und genutzten Arbeitsspeicher an",
     "kategorie": "System",
-    "keywords": ["arbeitsspeicher", "ram anzeigen", "speicher frei", "free", "ram auslastung"]
+    "keywords": ["arbeitsspeicher anzeigen", "ram anzeigen", "speicher frei anzeigen", "free", "ram auslastung anzeigen", "wie viel ram ist frei", "hauptspeicher pruefen"]
   },
   {
     "cmd": "clear",
     "kurz": "Leert den Terminal-Bildschirm",
     "kategorie": "System",
-    "keywords": ["bildschirm leeren", "terminal leeren", "clear", "aufraeumen bildschirm"]
+    "keywords": ["bildschirm leeren", "terminal leeren", "clear", "aufraeumen bildschirm", "konsole leeren", "bildschirm putzen"]
   },
   {
     "cmd": "history",
     "kurz": "Zeigt die zuletzt eingegebenen Befehle an",
     "kategorie": "System",
-    "keywords": ["befehlsverlauf", "history", "letzte befehle", "was habe ich eingegeben"]
+    "keywords": ["befehlsverlauf anzeigen", "history", "letzte befehle anzeigen", "was habe ich eingegeben", "fruehere befehle anzeigen", "befehle wiederfinden"]
   },
   {
     "cmd": "man BEFEHL",
     "kurz": "Zeigt das Handbuch (Manual) zu einem Befehl an",
     "kategorie": "System",
-    "keywords": ["hilfe zu befehl", "handbuch", "manual", "man page", "wie benutze ich befehl"]
+    "keywords": ["hilfe zu befehl", "handbuch anzeigen", "manual", "man page", "wie benutze ich befehl", "befehlshilfe anzeigen", "dokumentation zu befehl"]
   },
   {
     "cmd": "exit",
     "kurz": "Beendet die aktuelle Terminal-Sitzung",
     "kategorie": "System",
-    "keywords": ["terminal beenden", "exit", "sitzung beenden", "verlassen"]
+    "keywords": ["terminal beenden", "exit", "sitzung beenden", "verlassen", "konsole schliessen", "shell beenden"]
   },
   {
     "cmd": "whoami",
     "kurz": "Zeigt den Namen des aktuell angemeldeten Benutzers an",
     "kategorie": "System",
-    "keywords": ["wer bin ich", "aktueller benutzer", "whoami", "welcher user"]
+    "keywords": ["wer bin ich", "aktueller benutzer anzeigen", "whoami", "welcher user bin ich", "eingeloggter benutzer anzeigen", "meinen benutzernamen anzeigen"]
   },
   {
     "cmd": "id",
     "kurz": "Zeigt Benutzer- und Gruppen-ID des aktuellen Nutzers an",
     "kategorie": "System",
-    "keywords": ["benutzer id", "gruppen id", "id anzeigen", "uid gid"]
+    "keywords": ["benutzer id anzeigen", "gruppen id anzeigen", "id befehl", "uid gid anzeigen", "meine id anzeigen", "benutzerkennung anzeigen"]
+  },
+  {
+    "cmd": "which BEFEHL",
+    "kurz": "Zeigt den Pfad zu einem installierten Programm an",
+    "kategorie": "System",
+    "keywords": ["wo ist befehl installiert", "which", "pfad zu programm finden", "welches programm wird ausgefuehrt", "binary finden", "programmpfad anzeigen"]
+  },
+  {
+    "cmd": "type BEFEHL",
+    "kurz": "Zeigt an, ob ein Befehl ein Programm, Alias oder eingebauter Shell-Befehl ist",
+    "kategorie": "System",
+    "keywords": ["was ist dieser befehl", "type befehl", "ist das ein alias", "befehl typ anzeigen", "befehlsart herausfinden", "ist es ein programm oder alias"]
+  },
+  {
+    "cmd": "sudo systemctl status DIENST",
+    "kurz": "Zeigt den Status eines Systemdienstes an",
+    "kategorie": "System",
+    "keywords": ["dienst status anzeigen", "laeuft der dienst", "systemctl status", "service status pruefen", "laeuft mein server", "status eines dienstes pruefen"]
+  },
+  {
+    "cmd": "sudo systemctl restart DIENST",
+    "kurz": "Startet einen Systemdienst neu",
+    "kategorie": "System",
+    "keywords": ["dienst neustarten", "service neustarten", "systemctl restart", "server neu starten", "daemon neustarten", "dienst neu laden"]
+  },
+  {
+    "cmd": "sudo systemctl start DIENST",
+    "kurz": "Startet einen Systemdienst",
+    "kategorie": "System",
+    "keywords": ["dienst starten", "service starten", "systemctl start", "daemon starten", "server starten", "dienst aktivieren jetzt"]
+  },
+  {
+    "cmd": "sudo systemctl stop DIENST",
+    "kurz": "Stoppt einen Systemdienst",
+    "kategorie": "System",
+    "keywords": ["dienst stoppen", "service stoppen", "systemctl stop", "daemon beenden", "server stoppen", "dienst anhalten"]
+  },
+  {
+    "cmd": "sudo systemctl enable DIENST",
+    "kurz": "Aktiviert einen Dienst fuer den automatischen Start beim Booten",
+    "kategorie": "System",
+    "keywords": ["dienst beim start aktivieren", "autostart einrichten", "systemctl enable", "dienst automatisch starten", "dienst dauerhaft aktivieren", "boot autostart"]
+  },
+  {
+    "cmd": "journalctl -xe",
+    "kurz": "Zeigt die letzten Systemprotokolle mit Fehlerdetails an",
+    "kategorie": "System",
+    "keywords": ["systemlog anzeigen", "journalctl", "fehlerprotokoll anzeigen", "logs pruefen", "was ist schiefgelaufen", "systemfehler nachschauen"]
+  },
+  {
+    "cmd": "hostnamectl",
+    "kurz": "Zeigt und verwaltet den Rechnernamen und Systeminformationen",
+    "kategorie": "System",
+    "keywords": ["hostnamectl", "rechnername detailiert anzeigen", "systeminfo hostname", "rechnername und os anzeigen", "hostname verwalten", "systemidentitaet anzeigen"]
+  },
+  {
+    "cmd": "lscpu",
+    "kurz": "Zeigt Informationen zum Prozessor (CPU) an",
+    "kategorie": "System",
+    "keywords": ["cpu info anzeigen", "prozessor info anzeigen", "lscpu", "wie viele kerne hat mein prozessor", "prozessordetails anzeigen", "cpu architektur anzeigen"]
+  },
+  {
+    "cmd": "nproc",
+    "kurz": "Zeigt die Anzahl der verfuegbaren Prozessorkerne an",
+    "kategorie": "System",
+    "keywords": ["anzahl kerne anzeigen", "nproc", "wie viele cpu kerne", "kernanzahl ermitteln", "verfuegbare prozessoren anzeigen", "cpu anzahl"]
   },
   {
     "cmd": "ls -la",
     "kurz": "Listet alle Dateien und Ordner (auch versteckte) mit Details auf",
     "kategorie": "Dateisystem",
-    "keywords": ["dateien anzeigen", "ordner auflisten", "verzeichnis anzeigen", "ls", "versteckte dateien", "was ist in diesem ordner"]
+    "keywords": ["dateien anzeigen", "ordner auflisten", "verzeichnis anzeigen", "ls", "versteckte dateien anzeigen", "was ist in diesem ordner", "dateiliste anzeigen", "inhalt des ordners zeigen"]
   },
   {
     "cmd": "pwd",
     "kurz": "Zeigt den Pfad des aktuellen Verzeichnisses an",
     "kategorie": "Dateisystem",
-    "keywords": ["aktuelles verzeichnis", "wo bin ich", "pfad anzeigen", "pwd", "welcher ordner"]
+    "keywords": ["aktuelles verzeichnis anzeigen", "wo bin ich", "pfad anzeigen", "pwd", "welcher ordner ist das", "aktueller pfad anzeigen"]
   },
   {
     "cmd": "cd ZIEL",
     "kurz": "Wechselt in ein anderes Verzeichnis",
     "kategorie": "Dateisystem",
-    "keywords": ["verzeichnis wechseln", "ordner wechseln", "in ordner gehen", "cd", "navigieren"]
+    "keywords": ["verzeichnis wechseln", "ordner wechseln", "in ordner gehen", "cd", "navigieren", "zu ordner springen", "ordner betreten"]
   },
   {
     "cmd": "mkdir ZIEL",
     "kurz": "Erstellt einen neuen Ordner",
     "kategorie": "Dateisystem",
-    "keywords": ["ordner erstellen", "verzeichnis erstellen", "neuer ordner", "mkdir", "ordner anlegen"]
+    "keywords": ["ordner erstellen", "verzeichnis erstellen", "neuer ordner", "mkdir", "ordner anlegen", "verzeichnis anlegen"]
+  },
+  {
+    "cmd": "mkdir -p ZIEL",
+    "kurz": "Erstellt einen Ordner samt aller fehlenden Zwischenordner",
+    "kategorie": "Dateisystem",
+    "keywords": ["verschachtelten ordner erstellen", "unterordner anlegen", "mkdir -p", "mehrere ordner auf einmal erstellen", "ordnerpfad komplett anlegen", "tief verschachtelte ordner erstellen"]
   },
   {
     "cmd": "rmdir ZIEL",
     "kurz": "Loescht einen leeren Ordner",
     "kategorie": "Dateisystem",
-    "keywords": ["leeren ordner loeschen", "rmdir", "verzeichnis entfernen"]
+    "keywords": ["leeren ordner loeschen", "rmdir", "verzeichnis entfernen", "leeres verzeichnis loeschen", "ordner ohne inhalt entfernen", "leerverzeichnis loeschen"]
   },
   {
     "cmd": "rm DATEI",
     "kurz": "Loescht eine Datei unwiderruflich",
     "kategorie": "Dateisystem",
-    "keywords": ["datei loeschen", "rm", "datei entfernen", "loeschen"]
+    "keywords": ["datei loeschen", "rm", "datei entfernen", "loeschen", "file loeschen", "datei permanent entfernen"]
   },
   {
     "cmd": "rm -r ZIEL",
     "kurz": "Loescht einen Ordner samt Inhalt unwiderruflich",
     "kategorie": "Dateisystem",
-    "keywords": ["ordner loeschen", "verzeichnis samt inhalt loeschen", "rm -r", "rekursiv loeschen"]
+    "keywords": ["ordner loeschen", "verzeichnis samt inhalt loeschen", "rm -r", "rekursiv loeschen", "ordner mit inhalt entfernen", "kompletten ordner loeschen"]
   },
   {
     "cmd": "cp DATEI ZIEL",
     "kurz": "Kopiert eine Datei an einen anderen Ort",
     "kategorie": "Dateisystem",
-    "keywords": ["datei kopieren", "cp", "kopie erstellen"]
+    "keywords": ["datei kopieren", "cp", "kopie erstellen", "datei duplizieren", "datei an anderen ort kopieren", "backup einer datei erstellen"]
   },
   {
     "cmd": "cp -r ZIEL ZIEL",
     "kurz": "Kopiert einen Ordner samt Inhalt",
     "kategorie": "Dateisystem",
-    "keywords": ["ordner kopieren", "verzeichnis kopieren", "cp -r"]
+    "keywords": ["ordner kopieren", "verzeichnis kopieren", "cp -r", "ganzen ordner duplizieren", "ordner mit inhalt kopieren", "rekursiv kopieren"]
   },
   {
     "cmd": "mv DATEI ZIEL",
     "kurz": "Verschiebt oder benennt eine Datei um",
     "kategorie": "Dateisystem",
-    "keywords": ["datei verschieben", "datei umbenennen", "mv", "verschieben", "umbenennen"]
+    "keywords": ["datei verschieben", "datei umbenennen", "mv", "verschieben", "umbenennen", "datei an anderen ort verschieben", "datei neuen namen geben"]
   },
   {
     "cmd": "touch DATEI",
     "kurz": "Erstellt eine neue, leere Datei",
     "kategorie": "Dateisystem",
-    "keywords": ["datei erstellen", "leere datei anlegen", "touch", "neue datei"]
+    "keywords": ["datei erstellen", "leere datei anlegen", "touch", "neue datei anlegen", "datei zeitstempel aktualisieren", "leerdatei erstellen"]
   },
   {
     "cmd": "find ZIEL -name DATEI",
     "kurz": "Sucht nach einer Datei in einem Verzeichnis",
     "kategorie": "Dateisystem",
-    "keywords": ["datei suchen", "find", "datei finden", "wo ist meine datei"]
+    "keywords": ["datei suchen", "find", "datei finden", "wo ist meine datei", "nach datei suchen im verzeichnis", "datei im ordner suchen"]
   },
   {
     "cmd": "locate DATEI",
     "kurz": "Sucht schnell nach einer Datei ueber einen vorindexierten Datenbestand",
     "kategorie": "Dateisystem",
-    "keywords": ["datei schnell suchen", "locate", "datei finden schnell"]
+    "keywords": ["datei schnell suchen", "locate", "datei finden schnell", "datei ueber index finden", "schnelle dateisuche", "datei sofort finden"]
   },
   {
     "cmd": "ln -s DATEI ZIEL",
     "kurz": "Erstellt einen symbolischen Link (Verknuepfung) zu einer Datei",
     "kategorie": "Dateisystem",
-    "keywords": ["symlink erstellen", "verknuepfung erstellen", "ln -s", "symbolischer link"]
+    "keywords": ["symlink erstellen", "verknuepfung erstellen", "ln -s", "symbolischer link", "abkuerzung zu datei erstellen", "verweis auf datei erstellen"]
   },
   {
     "cmd": "du -sh ZIEL",
     "kurz": "Zeigt die Groesse eines Ordners an",
     "kategorie": "Dateisystem",
-    "keywords": ["ordnergroesse", "wie gross ist ordner", "du -sh", "speicherplatz ordner"]
+    "keywords": ["ordnergroesse anzeigen", "wie gross ist ordner", "du -sh", "speicherplatz eines ordners", "groesse von verzeichnis anzeigen", "festplattenverbrauch eines ordners"]
   },
   {
     "cmd": "df -h",
     "kurz": "Zeigt den freien und belegten Speicherplatz aller Laufwerke an",
     "kategorie": "Dateisystem",
-    "keywords": ["festplattenspeicher", "speicherplatz anzeigen", "df", "wie viel platz ist frei"]
+    "keywords": ["festplattenspeicher anzeigen", "speicherplatz anzeigen", "df", "wie viel platz ist frei", "freien speicher pruefen", "speicherplatz aller laufwerke"]
   },
   {
     "cmd": "tree",
     "kurz": "Zeigt die Ordnerstruktur als Baumdiagramm an",
     "kategorie": "Dateisystem",
-    "keywords": ["ordnerstruktur anzeigen", "baumansicht", "tree", "verzeichnisbaum"]
+    "keywords": ["ordnerstruktur anzeigen", "baumansicht", "tree", "verzeichnisbaum anzeigen", "ordner als baum darstellen", "struktur aller unterordner anzeigen"]
+  },
+  {
+    "cmd": "stat DATEI",
+    "kurz": "Zeigt detaillierte Metadaten einer Datei an",
+    "kategorie": "Dateisystem",
+    "keywords": ["dateiinformationen anzeigen", "stat befehl", "metadaten einer datei", "dateigroesse und datum anzeigen", "dateidetails anzeigen", "letzte aenderung einer datei anzeigen"]
+  },
+  {
+    "cmd": "file DATEI",
+    "kurz": "Erkennt und zeigt den Typ einer Datei an",
+    "kategorie": "Dateisystem",
+    "keywords": ["dateityp herausfinden", "file befehl", "was fuer eine datei ist das", "dateiformat erkennen", "dateityp bestimmen", "art einer datei erkennen"]
+  },
+  {
+    "cmd": "basename PFAD",
+    "kurz": "Extrahiert nur den Dateinamen aus einem Pfad",
+    "kategorie": "Dateisystem",
+    "keywords": ["dateinamen aus pfad extrahieren", "basename", "nur den dateinamen anzeigen", "dateiname ohne pfad", "letzten teil des pfades zeigen", "pfad auf dateiname kuerzen"]
+  },
+  {
+    "cmd": "dirname PFAD",
+    "kurz": "Extrahiert nur den Verzeichnispfad ohne Dateinamen",
+    "kategorie": "Dateisystem",
+    "keywords": ["verzeichnispfad extrahieren", "dirname", "nur den ordnerpfad anzeigen", "pfad ohne dateiname", "ordnerteil eines pfades zeigen", "uebergeordneten pfad ermitteln"]
+  },
+  {
+    "cmd": "realpath DATEI",
+    "kurz": "Zeigt den vollstaendigen, absoluten Pfad einer Datei an",
+    "kategorie": "Dateisystem",
+    "keywords": ["absoluten pfad anzeigen", "realpath", "vollstaendigen pfad ermitteln", "relativen pfad aufloesen", "kompletten dateipfad anzeigen", "tatsaechlichen pfad einer datei finden"]
+  },
+  {
+    "cmd": "rsync -av ZIEL ZIEL",
+    "kurz": "Synchronisiert Dateien oder Ordner effizient",
+    "kategorie": "Dateisystem",
+    "keywords": ["ordner synchronisieren", "rsync", "dateien abgleichen", "backup mit rsync", "effizient kopieren", "inkrementelles backup erstellen"]
   },
   {
     "cmd": "ps aux",
     "kurz": "Zeigt alle laufenden Prozesse an",
     "kategorie": "Prozesse",
-    "keywords": ["laufende prozesse", "ps aux", "prozesse anzeigen", "was laeuft gerade"]
+    "keywords": ["laufende prozesse anzeigen", "ps aux", "prozesse anzeigen", "was laeuft gerade", "alle prozesse auflisten", "prozessliste anzeigen"]
   },
   {
     "cmd": "top",
     "kurz": "Zeigt laufende Prozesse live mit Ressourcenverbrauch an",
     "kategorie": "Prozesse",
-    "keywords": ["prozesse live", "top", "systemauslastung", "cpu auslastung anzeigen"]
+    "keywords": ["prozesse live anzeigen", "top", "systemauslastung anzeigen", "cpu auslastung anzeigen", "laufende programme ueberwachen", "ressourcenverbrauch live sehen"]
   },
   {
     "cmd": "htop",
     "kurz": "Zeigt laufende Prozesse uebersichtlich und interaktiv an",
     "kategorie": "Prozesse",
-    "keywords": ["htop", "prozesse uebersicht", "schoene prozessliste"]
+    "keywords": ["htop", "prozesse uebersichtlich anzeigen", "schoene prozessliste", "interaktive prozessuebersicht", "htop starten", "farbige prozessansicht"]
   },
   {
     "cmd": "kill PID",
     "kurz": "Beendet einen Prozess anhand seiner Prozess-ID",
     "kategorie": "Prozesse",
-    "keywords": ["prozess beenden", "kill", "prozess abbrechen", "programm beenden"]
+    "keywords": ["prozess beenden", "kill", "prozess abbrechen", "programm beenden", "prozess stoppen anhand id", "laufendes programm killen"]
   },
   {
     "cmd": "kill -9 PID",
     "kurz": "Erzwingt das sofortige Beenden eines Prozesses",
     "kategorie": "Prozesse",
-    "keywords": ["prozess erzwingen beenden", "kill -9", "programm abschiessen", "hart beenden"]
+    "keywords": ["prozess erzwingen zu beenden", "kill -9", "programm abschiessen", "hart beenden", "prozess sofort killen", "prozess gewaltsam stoppen"]
   },
   {
     "cmd": "killall DIENST",
     "kurz": "Beendet alle Prozesse mit einem bestimmten Namen",
     "kategorie": "Prozesse",
-    "keywords": ["alle prozesse beenden", "killall", "programm nach namen beenden"]
+    "keywords": ["alle prozesse beenden", "killall", "programm nach namen beenden", "alle instanzen beenden", "alle laufenden kopien stoppen", "programm komplett beenden"]
+  },
+  {
+    "cmd": "pgrep BEFEHL",
+    "kurz": "Findet die Prozess-ID anhand des Programmnamens",
+    "kategorie": "Prozesse",
+    "keywords": ["prozess id finden", "pgrep", "laufenden prozess suchen", "pid herausfinden", "prozess nach namen suchen", "prozess id anhand namen ermitteln"]
+  },
+  {
+    "cmd": "pkill BEFEHL",
+    "kurz": "Beendet Prozesse anhand des Programmnamens",
+    "kategorie": "Prozesse",
+    "keywords": ["prozess nach namen beenden", "pkill", "programm per name killen", "prozess ueber namen stoppen", "alle passenden prozesse beenden", "programm anhand namen abschiessen"]
   },
   {
     "cmd": "jobs",
     "kurz": "Zeigt im Hintergrund laufende Aufgaben der aktuellen Sitzung an",
     "kategorie": "Prozesse",
-    "keywords": ["hintergrundaufgaben", "jobs", "laufende jobs anzeigen"]
+    "keywords": ["hintergrundaufgaben anzeigen", "jobs", "laufende jobs anzeigen", "aktive hintergrundprozesse zeigen", "shell jobs auflisten", "angehaltene aufgaben anzeigen"]
   },
   {
     "cmd": "bg",
     "kurz": "Setzt eine angehaltene Aufgabe im Hintergrund fort",
     "kategorie": "Prozesse",
-    "keywords": ["im hintergrund fortsetzen", "bg", "job in hintergrund"]
+    "keywords": ["im hintergrund fortsetzen", "bg", "job in hintergrund schicken", "angehaltenen job im hintergrund weiterlaufen lassen", "prozess in den hintergrund verschieben", "pausierten prozess im hintergrund starten"]
   },
   {
     "cmd": "fg",
     "kurz": "Holt eine Hintergrundaufgabe in den Vordergrund",
     "kategorie": "Prozesse",
-    "keywords": ["in vordergrund holen", "fg", "job fortsetzen"]
+    "keywords": ["in vordergrund holen", "fg", "job fortsetzen", "hintergrundjob zurueckholen", "prozess in vordergrund bringen", "angehaltenen job wieder aktivieren"]
   },
   {
     "cmd": "nice -n 10 BEFEHL",
     "kurz": "Startet einen Befehl mit niedrigerer Prioritaet",
     "kategorie": "Prozesse",
-    "keywords": ["prozess prioritaet", "nice", "programm mit niedriger prioritaet starten"]
+    "keywords": ["prozess mit niedriger prioritaet starten", "nice", "programm mit niedriger prioritaet ausfuehren", "prozess prioritaet beim start setzen", "befehl weniger wichtig ausfuehren", "prioritaet fuer neuen prozess festlegen"]
   },
   {
     "cmd": "renice 10 -p PID",
     "kurz": "Aendert die Prioritaet eines laufenden Prozesses",
     "kategorie": "Prozesse",
-    "keywords": ["prozess prioritaet aendern", "renice", "prioritaet anpassen"]
+    "keywords": ["prozess prioritaet aendern", "renice", "prioritaet eines laufenden prozesses anpassen", "laufenden prozess herunterstufen", "prioritaet nachtraeglich aendern", "prozess wichtigkeit anpassen"]
+  },
+  {
+    "cmd": "watch BEFEHL",
+    "kurz": "Fuehrt einen Befehl wiederholt aus und zeigt die Ausgabe live an",
+    "kategorie": "Prozesse",
+    "keywords": ["befehl wiederholt ausfuehren", "watch", "befehl laufend beobachten", "live aktualisierung eines befehls", "ausgabe periodisch aktualisieren", "befehl alle paar sekunden wiederholen"]
   },
   {
     "cmd": "ping ZIEL",
     "kurz": "Prueft, ob ein anderer Rechner im Netzwerk erreichbar ist",
     "kategorie": "Netzwerk",
-    "keywords": ["ping", "erreichbarkeit pruefen", "internetverbindung testen", "ist server erreichbar"]
+    "keywords": ["ping", "erreichbarkeit pruefen", "internetverbindung testen", "ist server erreichbar", "verbindung testen", "pruefen ob host online ist"]
   },
   {
     "cmd": "ip a",
     "kurz": "Zeigt die Netzwerkschnittstellen und IP-Adressen an",
     "kategorie": "Netzwerk",
-    "keywords": ["ip adresse anzeigen", "meine ip", "ip a", "netzwerkschnittstellen"]
+    "keywords": ["ip adresse anzeigen", "meine ip anzeigen", "ip a", "netzwerkschnittstellen anzeigen", "lokale ip herausfinden", "netzwerkinterfaces auflisten"]
   },
   {
     "cmd": "ifconfig",
     "kurz": "Zeigt Netzwerkschnittstellen an (aeltere Alternative zu ip)",
     "kategorie": "Netzwerk",
-    "keywords": ["ifconfig", "netzwerkkonfiguration anzeigen", "ip adresse alt"]
+    "keywords": ["ifconfig", "netzwerkkonfiguration anzeigen", "ip adresse alt anzeigen", "netzwerkschnittstellen alt befehl", "interface konfiguration zeigen", "alte netzwerkinfo anzeigen"]
   },
   {
     "cmd": "hostname",
     "kurz": "Zeigt den Rechnernamen an",
     "kategorie": "Netzwerk",
-    "keywords": ["rechnername", "hostname", "wie heisst dieser rechner"]
+    "keywords": ["rechnername anzeigen", "hostname", "wie heisst dieser rechner", "computername anzeigen", "hostname des systems zeigen", "rechner identifikation anzeigen"]
   },
   {
     "cmd": "curl ZIEL",
     "kurz": "Ruft eine Internetadresse ab und zeigt die Antwort an",
     "kategorie": "Netzwerk",
-    "keywords": ["curl", "webseite abrufen", "http anfrage", "url herunterladen"]
+    "keywords": ["curl", "webseite abrufen", "http anfrage senden", "url herunterladen", "website testen", "daten von url abrufen"]
+  },
+  {
+    "cmd": "curl -O ZIEL",
+    "kurz": "Laedt eine Datei mit curl herunter und behaelt den Originalnamen",
+    "kategorie": "Netzwerk",
+    "keywords": ["datei mit curl herunterladen", "curl -O", "download mit curl", "datei behalten originalnamen", "curl datei speichern", "herunterladen mit originaldateinamen"]
+  },
+  {
+    "cmd": "curl -L ZIEL",
+    "kurz": "Ruft eine URL ab und folgt dabei Weiterleitungen",
+    "kategorie": "Netzwerk",
+    "keywords": ["weiterleitungen folgen curl", "curl -L", "redirect folgen", "umleitung automatisch folgen", "curl mit redirect support", "link mit weiterleitung abrufen"]
   },
   {
     "cmd": "wget ZIEL",
     "kurz": "Laedt eine Datei aus dem Internet herunter",
     "kategorie": "Netzwerk",
-    "keywords": ["datei herunterladen", "wget", "download von url"]
+    "keywords": ["datei herunterladen", "wget", "download von url", "datei aus internet laden", "url speichern", "file download linux"]
+  },
+  {
+    "cmd": "wget -c ZIEL",
+    "kurz": "Setzt einen abgebrochenen Download fort",
+    "kategorie": "Netzwerk",
+    "keywords": ["download fortsetzen", "wget -c", "abgebrochenen download wieder aufnehmen", "unterbrochenen download fortsetzen", "download resume", "teilweise heruntergeladene datei fertigstellen"]
   },
   {
     "cmd": "netstat -tulpen",
     "kurz": "Zeigt offene Netzwerkverbindungen und Ports an",
     "kategorie": "Netzwerk",
-    "keywords": ["offene ports", "netstat", "netzwerkverbindungen anzeigen"]
+    "keywords": ["offene ports anzeigen", "netstat", "netzwerkverbindungen anzeigen", "welche ports sind offen", "aktive verbindungen zeigen", "lauschende ports anzeigen"]
   },
   {
     "cmd": "ss -tulpen",
     "kurz": "Zeigt offene Netzwerkverbindungen an (moderne Alternative zu netstat)",
     "kategorie": "Netzwerk",
-    "keywords": ["ss befehl", "offene verbindungen", "ports anzeigen modern"]
+    "keywords": ["ss befehl", "offene verbindungen anzeigen", "ports anzeigen modern", "aktive sockets anzeigen", "netzwerkverbindungen modern zeigen", "lauschende dienste anzeigen"]
+  },
+  {
+    "cmd": "traceroute ZIEL",
+    "kurz": "Zeigt den Netzwerkweg zu einem Ziel an",
+    "kategorie": "Netzwerk",
+    "keywords": ["route zu server verfolgen", "traceroute", "netzwerkweg anzeigen", "wo haengt die verbindung", "pfad zum zielserver anzeigen", "netzwerkhops anzeigen"]
+  },
+  {
+    "cmd": "dig ZIEL",
+    "kurz": "Fuehrt eine DNS-Abfrage fuer eine Domain durch",
+    "kategorie": "Netzwerk",
+    "keywords": ["dns abfrage", "dig befehl", "domainname aufloesen", "dns eintrag pruefen", "nameserver abfragen", "domain informationen abrufen"]
+  },
+  {
+    "cmd": "nslookup ZIEL",
+    "kurz": "Loest einen Domainnamen zu einer IP-Adresse auf",
+    "kategorie": "Netzwerk",
+    "keywords": ["dns nachschlagen", "nslookup", "ip adresse einer domain finden", "domain zu ip aufloesen", "dns server abfragen", "hostname aufloesen"]
   },
   {
     "cmd": "ssh ZIEL",
     "kurz": "Verbindet sich per SSH mit einem entfernten Rechner",
     "kategorie": "Netzwerk",
-    "keywords": ["ssh", "verbindung zu server", "remote einloggen", "auf server einloggen"]
+    "keywords": ["ssh", "verbindung zu server", "remote einloggen", "auf server einloggen", "fernzugriff per ssh", "in entfernten rechner einloggen"]
   },
   {
     "cmd": "scp DATEI ZIEL",
     "kurz": "Kopiert eine Datei sicher auf einen entfernten Rechner",
     "kategorie": "Netzwerk",
-    "keywords": ["scp", "datei auf server kopieren", "sicheres kopieren", "datei uebertragen"]
+    "keywords": ["scp", "datei auf server kopieren", "sicheres kopieren", "datei uebertragen", "datei per ssh kopieren", "remote datei transfer"]
   },
   {
     "cmd": "ssh-keygen",
     "kurz": "Erstellt ein neues SSH-Schluesselpaar",
     "kategorie": "Netzwerk",
-    "keywords": ["ssh schluessel erstellen", "ssh-keygen", "ssh key generieren"]
+    "keywords": ["ssh schluessel erstellen", "ssh-keygen", "ssh key generieren", "neues schluesselpaar erzeugen", "public private key erstellen", "ssh authentifizierung einrichten"]
   },
   {
     "cmd": "ssh-copy-id ZIEL",
     "kurz": "Kopiert den eigenen SSH-Schluessel auf einen entfernten Server",
     "kategorie": "Netzwerk",
-    "keywords": ["ssh schluessel kopieren", "ssh-copy-id", "passwortlos einloggen einrichten"]
+    "keywords": ["ssh schluessel kopieren", "ssh-copy-id", "passwortlos einloggen einrichten", "public key auf server uebertragen", "ssh ohne passwort einrichten", "authorized keys aktualisieren"]
   },
   {
     "cmd": "sudo apt update",
     "kurz": "Aktualisiert die Liste verfuegbarer Software-Pakete",
     "kategorie": "Paketverwaltung",
-    "keywords": ["paketliste aktualisieren", "apt update", "software updates suchen"]
+    "keywords": ["paketliste aktualisieren", "apt update", "software updates suchen", "verfuegbare updates pruefen", "paketquellen aktualisieren", "nach neuen paketen suchen"]
   },
   {
     "cmd": "sudo apt upgrade",
     "kurz": "Installiert verfuegbare Updates fuer alle installierten Pakete",
     "kategorie": "Paketverwaltung",
-    "keywords": ["system aktualisieren", "apt upgrade", "updates installieren", "software aktualisieren"]
+    "keywords": ["system aktualisieren", "apt upgrade", "updates installieren", "software aktualisieren", "alle pakete aktualisieren", "system auf neuesten stand bringen"]
   },
   {
     "cmd": "sudo apt install PAKETNAME",
     "kurz": "Installiert ein neues Software-Paket",
     "kategorie": "Paketverwaltung",
-    "keywords": ["programm installieren", "apt install", "software installieren", "paket installieren"]
+    "keywords": ["programm installieren", "apt install", "software installieren", "paket installieren", "neue software hinzufuegen", "anwendung installieren"]
   },
   {
     "cmd": "sudo apt remove PAKETNAME",
     "kurz": "Deinstalliert ein Software-Paket",
     "kategorie": "Paketverwaltung",
-    "keywords": ["programm deinstallieren", "apt remove", "software entfernen", "paket loeschen"]
+    "keywords": ["programm deinstallieren", "apt remove", "software entfernen", "paket loeschen", "anwendung deinstallieren", "software deinstallieren"]
   },
   {
     "cmd": "sudo apt autoremove",
     "kurz": "Entfernt nicht mehr benoetigte Pakete automatisch",
     "kategorie": "Paketverwaltung",
-    "keywords": ["nicht benoetigte pakete entfernen", "apt autoremove", "aufraeumen pakete"]
+    "keywords": ["nicht benoetigte pakete entfernen", "apt autoremove", "aufraeumen pakete", "ueberfluessige abhaengigkeiten entfernen", "system pakete aufraeumen", "verwaiste pakete loeschen"]
   },
   {
     "cmd": "apt search PAKETNAME",
     "kurz": "Sucht nach einem Software-Paket",
     "kategorie": "Paketverwaltung",
-    "keywords": ["paket suchen", "apt search", "software suchen"]
+    "keywords": ["paket suchen", "apt search", "software suchen", "verfuegbares paket finden", "nach programm suchen apt", "softwarename suchen"]
+  },
+  {
+    "cmd": "apt list --installed",
+    "kurz": "Listet alle installierten Pakete auf (moderne apt-Variante)",
+    "kategorie": "Paketverwaltung",
+    "keywords": ["installierte pakete anzeigen apt", "apt list installed", "welche pakete sind installiert", "liste installierter software", "alle installierten pakete zeigen", "installierte software auflisten"]
+  },
+  {
+    "cmd": "apt show PAKETNAME",
+    "kurz": "Zeigt Detailinformationen zu einem Paket an",
+    "kategorie": "Paketverwaltung",
+    "keywords": ["paketinfo anzeigen", "apt show", "details zu einem paket", "paketbeschreibung anzeigen", "informationen zu software paket", "paketversion anzeigen"]
   },
   {
     "cmd": "dpkg -l",
     "kurz": "Listet alle installierten Pakete auf",
     "kategorie": "Paketverwaltung",
-    "keywords": ["installierte pakete anzeigen", "dpkg -l", "welche software ist installiert"]
+    "keywords": ["installierte pakete anzeigen", "dpkg -l", "welche software ist installiert", "dpkg paketliste", "alle dpkg pakete zeigen", "systempakete auflisten"]
   },
   {
     "cmd": "snap install PAKETNAME",
     "kurz": "Installiert eine Anwendung ueber das Snap-Paketformat",
     "kategorie": "Paketverwaltung",
-    "keywords": ["snap installieren", "snap install", "snap paket"]
+    "keywords": ["snap installieren", "snap install", "snap paket installieren", "anwendung ueber snap installieren", "snap software hinzufuegen", "snap store paket installieren"]
   },
   {
     "cmd": "chmod +x DATEI",
     "kurz": "Macht eine Datei ausfuehrbar",
     "kategorie": "Berechtigungen",
-    "keywords": ["datei ausfuehrbar machen", "chmod +x", "ausfuehrungsrecht setzen", "skript ausfuehrbar"]
+    "keywords": ["datei ausfuehrbar machen", "chmod +x", "ausfuehrungsrecht setzen", "skript ausfuehrbar machen", "programm ausfuehrbar machen", "execute recht setzen"]
   },
   {
     "cmd": "chmod 755 DATEI",
     "kurz": "Setzt Standard-Berechtigungen fuer ausfuehrbare Dateien",
     "kategorie": "Berechtigungen",
-    "keywords": ["chmod 755", "berechtigungen setzen", "rechte 755"]
+    "keywords": ["chmod 755", "berechtigungen setzen", "rechte 755 setzen", "standardrechte fuer ausfuehrbare datei", "dateiberechtigungen 755", "zugriffsrechte 755 vergeben"]
   },
   {
     "cmd": "chmod 644 DATEI",
     "kurz": "Setzt Standard-Berechtigungen fuer normale Dateien",
     "kategorie": "Berechtigungen",
-    "keywords": ["chmod 644", "berechtigungen normal", "lese schreibrechte setzen"]
+    "keywords": ["chmod 644", "berechtigungen normal setzen", "lese schreibrechte setzen", "standardrechte fuer textdatei", "dateiberechtigungen 644", "zugriffsrechte 644 vergeben"]
   },
   {
     "cmd": "chmod -R 755 ZIEL",
     "kurz": "Setzt Berechtigungen rekursiv fuer einen ganzen Ordner",
     "kategorie": "Berechtigungen",
-    "keywords": ["berechtigungen rekursiv", "chmod -R", "ordner rechte setzen"]
+    "keywords": ["berechtigungen rekursiv setzen", "chmod -R", "ordner rechte setzen", "rechte fuer alle dateien im ordner setzen", "rekursive berechtigungen aendern", "gesamten ordner berechtigungen setzen"]
   },
   {
     "cmd": "chown BENUTZER:GRUPPE DATEI",
     "kurz": "Aendert den Besitzer und die Gruppe einer Datei",
     "kategorie": "Berechtigungen",
-    "keywords": ["besitzer aendern", "chown", "eigentuemer aendern", "datei uebertragen an user"]
+    "keywords": ["besitzer aendern", "chown", "eigentuemer aendern", "datei uebertragen an user", "dateibesitzer setzen", "eigentumsrechte einer datei aendern"]
   },
   {
     "cmd": "chown -R BENUTZER:GRUPPE ZIEL",
     "kurz": "Aendert den Besitzer rekursiv fuer einen ganzen Ordner",
     "kategorie": "Berechtigungen",
-    "keywords": ["besitzer rekursiv aendern", "chown -R", "ordner besitzer setzen"]
+    "keywords": ["besitzer rekursiv aendern", "chown -R", "ordner besitzer setzen", "kompletten ordner uebertragen", "eigentuemer fuer alle dateien im ordner", "rekursiv eigentuemer aendern"]
   },
   {
     "cmd": "chgrp GRUPPE DATEI",
     "kurz": "Aendert nur die Gruppe einer Datei",
     "kategorie": "Berechtigungen",
-    "keywords": ["gruppe aendern", "chgrp", "dateigruppe setzen"]
+    "keywords": ["gruppe aendern", "chgrp", "dateigruppe setzen", "gruppenzugehoerigkeit einer datei aendern", "gruppe einer datei zuweisen", "gruppeneigentuemer setzen"]
   },
   {
     "cmd": "sudo BEFEHL",
     "kurz": "Fuehrt einen Befehl mit Administratorrechten aus",
     "kategorie": "Berechtigungen",
-    "keywords": ["als admin ausfuehren", "sudo", "root rechte", "administrator befehl"]
+    "keywords": ["als admin ausfuehren", "sudo", "root rechte", "administrator befehl", "befehl mit erhoehten rechten ausfuehren", "als root ausfuehren"]
   },
   {
     "cmd": "su -",
     "kurz": "Wechselt zum Root-Benutzer (Administrator)",
     "kategorie": "Berechtigungen",
-    "keywords": ["zu root wechseln", "su", "administrator werden", "root benutzer"]
+    "keywords": ["zu root wechseln", "su", "administrator werden", "root benutzer", "root shell oeffnen", "benutzer wechseln zu root"]
+  },
+  {
+    "cmd": "umask",
+    "kurz": "Zeigt die Standard-Zugriffsrechte fuer neue Dateien an",
+    "kategorie": "Berechtigungen",
+    "keywords": ["standardrechte anzeigen", "umask befehl", "standard berechtigungen fuer neue dateien", "default dateirechte anzeigen", "umask wert anzeigen", "voreingestellte zugriffsrechte pruefen"]
   },
   {
     "cmd": "git init",
     "kurz": "Erstellt ein neues Git-Repository im aktuellen Ordner",
     "kategorie": "Git",
-    "keywords": ["git repository erstellen", "git init", "neues repo"]
+    "keywords": ["git repository erstellen", "git init", "neues repo", "git projekt initialisieren", "versionskontrolle starten", "neues git verzeichnis anlegen"]
   },
   {
     "cmd": "git clone ZIEL",
     "kurz": "Laedt ein Git-Repository von einer Adresse herunter",
     "kategorie": "Git",
-    "keywords": ["git klonen", "git clone", "repository herunterladen"]
+    "keywords": ["git klonen", "git clone", "repository herunterladen", "projekt von github herunterladen", "git repo kopieren", "fremdes repository lokal holen"]
   },
   {
     "cmd": "git status",
     "kurz": "Zeigt den aktuellen Status des Git-Repositorys an",
     "kategorie": "Git",
-    "keywords": ["git status", "aenderungen anzeigen git", "was hat sich geaendert"]
+    "keywords": ["git status", "aenderungen anzeigen git", "was hat sich geaendert", "status des repositorys pruefen", "offene aenderungen anzeigen", "git arbeitsverzeichnis status"]
   },
   {
     "cmd": "git add .",
     "kurz": "Fuegt alle Aenderungen zum naechsten Commit hinzu",
     "kategorie": "Git",
-    "keywords": ["git add", "aenderungen hinzufuegen", "dateien staging"]
+    "keywords": ["git add", "aenderungen hinzufuegen", "dateien staging", "aenderungen zum commit vormerken", "alle dateien zum commit hinzufuegen", "git staging area befuellen"]
   },
   {
     "cmd": "git commit -m NACHRICHT",
     "kurz": "Speichert die hinzugefuegten Aenderungen mit einer Nachricht",
     "kategorie": "Git",
-    "keywords": ["git commit", "aenderungen speichern git", "commit erstellen"]
+    "keywords": ["git commit", "aenderungen speichern git", "commit erstellen", "snapshot der aenderungen speichern", "commit mit nachricht erstellen", "aenderungen dauerhaft festhalten git"]
   },
   {
     "cmd": "git push",
     "kurz": "Laedt lokale Commits zum entfernten Repository hoch",
     "kategorie": "Git",
-    "keywords": ["git push", "hochladen git", "aenderungen hochladen"]
+    "keywords": ["git push", "hochladen git", "aenderungen hochladen", "commits zum server senden", "lokale commits veroeffentlichen", "repository aktualisieren remote"]
   },
   {
     "cmd": "git pull",
     "kurz": "Laedt Aenderungen vom entfernten Repository herunter",
     "kategorie": "Git",
-    "keywords": ["git pull", "aenderungen herunterladen", "aktualisieren git"]
+    "keywords": ["git pull", "aenderungen herunterladen", "aktualisieren git", "neueste aenderungen holen", "remote repository abrufen", "lokales repo mit server abgleichen"]
   },
   {
     "cmd": "git log",
     "kurz": "Zeigt die Commit-Historie an",
     "kategorie": "Git",
-    "keywords": ["git log", "commit verlauf", "historie anzeigen git"]
+    "keywords": ["git log", "commit verlauf anzeigen", "historie anzeigen git", "alle commits auflisten", "aenderungsverlauf ansehen", "git commit historie"]
   },
   {
     "cmd": "git branch",
     "kurz": "Listet alle Branches auf oder erstellt einen neuen",
     "kategorie": "Git",
-    "keywords": ["git branch", "branches anzeigen", "zweig erstellen"]
+    "keywords": ["git branch", "branches anzeigen", "zweig erstellen", "alle branches auflisten", "neuen branch anlegen", "branch uebersicht git"]
   },
   {
     "cmd": "git checkout ZIEL",
     "kurz": "Wechselt zu einem anderen Branch oder Commit",
     "kategorie": "Git",
-    "keywords": ["git checkout", "branch wechseln", "zu commit wechseln"]
+    "keywords": ["git checkout", "branch wechseln", "zu commit wechseln", "in anderen branch wechseln", "alten stand auschecken", "git branch aktivieren"]
   },
   {
     "cmd": "git diff",
     "kurz": "Zeigt die Unterschiede zwischen Dateiversionen an",
     "kategorie": "Git",
-    "keywords": ["git diff", "unterschiede anzeigen", "aenderungen im detail"]
+    "keywords": ["git diff", "unterschiede anzeigen", "aenderungen im detail", "code aenderungen vergleichen", "was wurde geaendert git", "diff der aktuellen aenderungen"]
   },
   {
     "cmd": "sudo ufw enable",
     "kurz": "Aktiviert die Firewall",
     "kategorie": "Firewall",
-    "keywords": ["firewall aktivieren", "ufw enable", "firewall anschalten"]
+    "keywords": ["firewall aktivieren", "ufw enable", "firewall anschalten", "firewall einschalten", "schutz aktivieren firewall", "ufw starten"]
   },
   {
     "cmd": "sudo ufw disable",
     "kurz": "Deaktiviert die Firewall",
     "kategorie": "Firewall",
-    "keywords": ["firewall deaktivieren", "ufw disable", "firewall ausschalten"]
+    "keywords": ["firewall deaktivieren", "ufw disable", "firewall ausschalten", "firewall abschalten", "ufw stoppen", "schutz deaktivieren firewall"]
   },
   {
     "cmd": "sudo ufw status",
     "kurz": "Zeigt den aktuellen Firewall-Status an",
     "kategorie": "Firewall",
-    "keywords": ["firewall status", "ufw status", "ist firewall an"]
+    "keywords": ["firewall status anzeigen", "ufw status", "ist firewall an", "firewall regeln anzeigen", "aktuellen firewallstatus pruefen", "ufw konfiguration ansehen"]
   },
   {
     "cmd": "sudo ufw allow ZIEL",
     "kurz": "Erlaubt eingehenden Netzwerkverkehr auf einem Port oder Dienst",
     "kategorie": "Firewall",
-    "keywords": ["port freigeben", "ufw allow", "firewall regel hinzufuegen", "port oeffnen"]
+    "keywords": ["port freigeben", "ufw allow", "firewall regel hinzufuegen", "port oeffnen", "zugriff erlauben firewall", "dienst durch firewall lassen"]
   },
   {
     "cmd": "sudo ufw deny ZIEL",
     "kurz": "Blockiert eingehenden Netzwerkverkehr auf einem Port oder Dienst",
     "kategorie": "Firewall",
-    "keywords": ["port blockieren", "ufw deny", "firewall regel sperren"]
+    "keywords": ["port blockieren", "ufw deny", "firewall regel sperren", "zugriff verweigern firewall", "port schliessen firewall", "verbindung blockieren ufw"]
   },
   {
     "cmd": "crontab -e",
     "kurz": "Oeffnet den Editor fuer geplante wiederkehrende Aufgaben (Cron-Jobs)",
     "kategorie": "Cron",
-    "keywords": ["cron job erstellen", "crontab -e", "geplante aufgabe", "automatisch ausfuehren zeitplan"]
+    "keywords": ["cron job erstellen", "crontab -e", "geplante aufgabe", "automatisch ausfuehren zeitplan", "wiederkehrende aufgabe einrichten", "cronjob bearbeiten"]
   },
   {
     "cmd": "crontab -l",
     "kurz": "Zeigt alle geplanten Cron-Jobs an",
     "kategorie": "Cron",
-    "keywords": ["cron jobs anzeigen", "crontab -l", "geplante aufgaben ansehen"]
+    "keywords": ["cron jobs anzeigen", "crontab -l", "geplante aufgaben ansehen", "aktuelle cronjobs auflisten", "zeitplan anzeigen", "eingerichtete cronjobs pruefen"]
   },
   {
     "cmd": "crontab -r",
     "kurz": "Loescht alle geplanten Cron-Jobs des Benutzers",
     "kategorie": "Cron",
-    "keywords": ["cron jobs loeschen", "crontab -r", "geplante aufgaben entfernen"]
+    "keywords": ["cron jobs loeschen", "crontab -r", "geplante aufgaben entfernen", "alle cronjobs entfernen", "zeitplan komplett loeschen", "cron konfiguration zuruecksetzen"]
   },
   {
     "cmd": "env",
     "kurz": "Zeigt alle gesetzten Umgebungsvariablen an",
     "kategorie": "Umgebungsvariablen",
-    "keywords": ["umgebungsvariablen anzeigen", "env", "environment variablen"]
+    "keywords": ["umgebungsvariablen anzeigen", "env", "environment variablen", "alle umgebungsvariablen auflisten", "systemvariablen anzeigen", "env befehl ausgeben"]
   },
   {
     "cmd": "echo $PATH",
     "kurz": "Zeigt den PATH an, in dem nach Befehlen gesucht wird",
     "kategorie": "Umgebungsvariablen",
-    "keywords": ["path anzeigen", "echo path", "systempfad anzeigen"]
+    "keywords": ["path anzeigen", "echo path", "systempfad anzeigen", "suchpfad fuer befehle anzeigen", "path variable ausgeben", "wo sucht die shell nach befehlen"]
   },
   {
     "cmd": "export VARIABLE=WERT",
     "kurz": "Setzt eine Umgebungsvariable fuer die aktuelle Sitzung",
     "kategorie": "Umgebungsvariablen",
-    "keywords": ["umgebungsvariable setzen", "export", "variable definieren"]
+    "keywords": ["umgebungsvariable setzen", "export", "variable definieren", "neue umgebungsvariable anlegen", "shell variable exportieren", "wert einer variable setzen"]
   },
   {
     "cmd": "alias name='BEFEHL'",
     "kurz": "Erstellt eine Abkuerzung (Alias) fuer einen Befehl",
     "kategorie": "Umgebungsvariablen",
-    "keywords": ["alias erstellen", "abkuerzung befehl", "kurzbefehl anlegen"]
+    "keywords": ["alias erstellen", "abkuerzung befehl", "kurzbefehl anlegen", "eigenen befehl definieren", "shortcut fuer befehl erstellen", "haeufigen befehl abkuerzen"]
   },
   {
     "cmd": "unalias name",
     "kurz": "Entfernt einen zuvor erstellten Alias",
     "kategorie": "Umgebungsvariablen",
-    "keywords": ["alias entfernen", "unalias", "abkuerzung loeschen"]
+    "keywords": ["alias entfernen", "unalias", "abkuerzung loeschen", "definierten alias loeschen", "kurzbefehl entfernen", "alias rueckgaengig machen"]
   },
   {
     "cmd": "zip -r ZIEL.zip ZIEL",
     "kurz": "Erstellt ein ZIP-Archiv aus einem Ordner",
     "kategorie": "Archive",
-    "keywords": ["zip erstellen", "archiv erstellen", "ordner zippen", "komprimieren"]
+    "keywords": ["zip erstellen", "archiv erstellen", "ordner zippen", "komprimieren", "zip datei erstellen aus ordner", "ordner als zip packen"]
   },
   {
     "cmd": "unzip DATEI.zip",
     "kurz": "Entpackt ein ZIP-Archiv",
     "kategorie": "Archive",
-    "keywords": ["zip entpacken", "unzip", "archiv entpacken", "dekomprimieren"]
+    "keywords": ["zip entpacken", "unzip", "archiv entpacken", "dekomprimieren", "zip datei auspacken", "inhalt eines zip archivs extrahieren"]
   },
   {
     "cmd": "tar -czf ZIEL.tar.gz ZIEL",
     "kurz": "Erstellt ein komprimiertes tar.gz-Archiv aus einem Ordner",
     "kategorie": "Archive",
-    "keywords": ["tar erstellen", "tar.gz erstellen", "ordner komprimieren tar"]
+    "keywords": ["tar erstellen", "tar.gz erstellen", "ordner komprimieren tar", "tarball erstellen", "archiv mit tar erzeugen", "ordner packen tar gz"]
   },
   {
     "cmd": "tar -xzf DATEI.tar.gz",
     "kurz": "Entpackt ein tar.gz-Archiv",
     "kategorie": "Archive",
-    "keywords": ["tar entpacken", "tar.gz entpacken", "archiv extrahieren"]
+    "keywords": ["tar entpacken", "tar.gz entpacken", "archiv extrahieren", "tarball auspacken", "tar gz datei oeffnen", "komprimiertes archiv entpacken"]
+  },
+  {
+    "cmd": "gzip DATEI",
+    "kurz": "Komprimiert eine einzelne Datei",
+    "kategorie": "Archive",
+    "keywords": ["datei komprimieren gzip", "gzip befehl", "einzelne datei komprimieren", "gz datei erstellen", "datei verkleinern gzip", "komprimierung einzeldatei"]
+  },
+  {
+    "cmd": "gunzip DATEI.gz",
+    "kurz": "Entpackt eine mit gzip komprimierte Datei",
+    "kategorie": "Archive",
+    "keywords": ["gz datei entpacken", "gunzip befehl", "komprimierte datei entpacken", "gz archiv auspacken", "gzip datei wiederherstellen", "gz entkomprimieren"]
   },
   {
     "cmd": "sudo useradd BENUTZER",
     "kurz": "Erstellt einen neuen Benutzer",
     "kategorie": "Benutzerverwaltung",
-    "keywords": ["benutzer erstellen", "useradd", "neuen user anlegen"]
+    "keywords": ["benutzer erstellen", "useradd", "neuen user anlegen", "neues benutzerkonto erstellen", "account anlegen linux", "neuen nutzer hinzufuegen"]
   },
   {
     "cmd": "sudo passwd BENUTZER",
     "kurz": "Setzt oder aendert das Passwort eines Benutzers",
     "kategorie": "Benutzerverwaltung",
-    "keywords": ["passwort aendern", "passwd", "passwort setzen"]
+    "keywords": ["passwort aendern", "passwd", "passwort setzen", "neues passwort vergeben", "kennwort aendern", "benutzerpasswort zuruecksetzen"]
   },
   {
     "cmd": "sudo usermod -aG GRUPPE BENUTZER",
     "kurz": "Fuegt einen Benutzer zu einer zusaetzlichen Gruppe hinzu",
     "kategorie": "Benutzerverwaltung",
-    "keywords": ["benutzer zu gruppe hinzufuegen", "usermod", "gruppenmitgliedschaft aendern"]
+    "keywords": ["benutzer zu gruppe hinzufuegen", "usermod", "gruppenmitgliedschaft aendern", "user in gruppe aufnehmen", "zusaetzliche gruppe zuweisen", "benutzerrechte per gruppe erweitern"]
   },
   {
     "cmd": "sudo deluser BENUTZER",
     "kurz": "Loescht einen Benutzer",
     "kategorie": "Benutzerverwaltung",
-    "keywords": ["benutzer loeschen", "deluser", "user entfernen"]
+    "keywords": ["benutzer loeschen", "deluser", "user entfernen", "benutzerkonto entfernen", "account loeschen linux", "nutzer deaktivieren und loeschen"]
   },
   {
     "cmd": "groups",
     "kurz": "Zeigt die Gruppen des aktuellen Benutzers an",
     "kategorie": "Benutzerverwaltung",
-    "keywords": ["gruppen anzeigen", "groups", "in welchen gruppen bin ich"]
+    "keywords": ["gruppen anzeigen", "groups befehl", "in welchen gruppen bin ich", "meine gruppenmitgliedschaften", "gruppenzugehoerigkeit pruefen", "aktuelle gruppen des benutzers"]
   },
   {
     "cmd": "who",
     "kurz": "Zeigt an, welche Benutzer aktuell angemeldet sind",
     "kategorie": "Benutzerverwaltung",
-    "keywords": ["angemeldete benutzer", "who", "wer ist eingeloggt"]
+    "keywords": ["angemeldete benutzer anzeigen", "who", "wer ist eingeloggt", "aktive sitzungen anzeigen", "welche user sind online", "eingeloggte nutzer auflisten"]
+  },
+  {
+    "cmd": "w",
+    "kurz": "Zeigt angemeldete Benutzer und deren aktuelle Aktivitaet an",
+    "kategorie": "Benutzerverwaltung",
+    "keywords": ["wer ist aktiv eingeloggt", "w befehl", "aktive benutzer und aktivitaet", "was machen andere benutzer gerade", "angemeldete nutzer mit aktivitaet", "system aktivitaet der benutzer"]
+  },
+  {
+    "cmd": "last",
+    "kurz": "Zeigt die letzten Anmeldungen am System an",
+    "kategorie": "Benutzerverwaltung",
+    "keywords": ["letzte logins anzeigen", "last befehl", "anmeldeverlauf anzeigen", "login historie pruefen", "wer hat sich zuletzt angemeldet", "vergangene anmeldungen anzeigen"]
   },
   {
     "cmd": "lsblk",
     "kurz": "Zeigt alle Festplatten und Partitionen uebersichtlich an",
     "kategorie": "Festplatten",
-    "keywords": ["festplatten anzeigen", "lsblk", "partitionen anzeigen", "laufwerke auflisten"]
+    "keywords": ["festplatten anzeigen", "lsblk", "partitionen anzeigen", "laufwerke auflisten", "blockgeraete anzeigen", "alle festplatten und partitionen zeigen"]
   },
   {
     "cmd": "sudo fdisk -l",
     "kurz": "Zeigt detaillierte Informationen zu allen Partitionen an",
     "kategorie": "Festplatten",
-    "keywords": ["partitionen details", "fdisk -l", "partitionstabelle anzeigen"]
+    "keywords": ["partitionen details anzeigen", "fdisk -l", "partitionstabelle anzeigen", "festplattenpartitionen im detail", "partitionslayout pruefen", "partitionsgroessen anzeigen"]
   },
   {
     "cmd": "sudo mount ZIEL ZIEL",
     "kurz": "Bindet ein Laufwerk in das Dateisystem ein",
     "kategorie": "Festplatten",
-    "keywords": ["laufwerk einbinden", "mount", "festplatte mounten"]
+    "keywords": ["laufwerk einbinden", "mount", "festplatte mounten", "partition einhaengen", "laufwerk verfuegbar machen", "dateisystem einbinden"]
   },
   {
     "cmd": "sudo umount ZIEL",
     "kurz": "Trennt ein eingebundenes Laufwerk vom Dateisystem",
     "kategorie": "Festplatten",
-    "keywords": ["laufwerk trennen", "umount", "festplatte auswerfen"]
+    "keywords": ["laufwerk trennen", "umount", "festplatte auswerfen", "partition aushaengen", "laufwerk sicher entfernen", "dateisystem trennen"]
+  },
+  {
+    "cmd": "blkid",
+    "kurz": "Zeigt UUID und Dateisystemtyp aller Partitionen an",
+    "kategorie": "Festplatten",
+    "keywords": ["partitions uuid anzeigen", "blkid befehl", "dateisystemtyp anzeigen", "uuid einer partition finden", "dateisystem einer partition erkennen", "partition identifikation anzeigen"]
   },
   {
     "cmd": "cat DATEI",
     "kurz": "Zeigt den kompletten Inhalt einer Textdatei an",
     "kategorie": "Textverarbeitung",
-    "keywords": ["datei anzeigen", "cat", "textdatei ausgeben", "inhalt anzeigen"]
+    "keywords": ["datei anzeigen", "cat", "textdatei ausgeben", "inhalt anzeigen", "dateiinhalt im terminal zeigen", "gesamten text einer datei ausgeben"]
   },
   {
     "cmd": "less DATEI",
     "kurz": "Zeigt den Inhalt einer Datei seitenweise zum Durchblättern an",
     "kategorie": "Textverarbeitung",
-    "keywords": ["datei durchblaettern", "less", "seitenweise anzeigen"]
+    "keywords": ["datei durchblaettern", "less", "seitenweise anzeigen", "lange datei lesen", "textdatei scrollen", "datei seite fuer seite ansehen"]
   },
   {
     "cmd": "head DATEI",
     "kurz": "Zeigt die ersten Zeilen einer Datei an",
     "kategorie": "Textverarbeitung",
-    "keywords": ["anfang der datei anzeigen", "head", "erste zeilen"]
+    "keywords": ["anfang der datei anzeigen", "head", "erste zeilen anzeigen", "dateianfang ansehen", "erste paar zeilen zeigen", "kopf einer datei anzeigen"]
   },
   {
     "cmd": "tail DATEI",
     "kurz": "Zeigt die letzten Zeilen einer Datei an",
     "kategorie": "Textverarbeitung",
-    "keywords": ["ende der datei anzeigen", "tail", "letzte zeilen"]
+    "keywords": ["ende der datei anzeigen", "tail", "letzte zeilen anzeigen", "dateiende ansehen", "letzte paar zeilen zeigen", "fuss einer datei anzeigen"]
   },
   {
     "cmd": "tail -f DATEI",
     "kurz": "Zeigt neue Zeilen einer Datei live an, sobald sie hinzugefuegt werden",
     "kategorie": "Textverarbeitung",
-    "keywords": ["log datei live verfolgen", "tail -f", "logfile beobachten"]
+    "keywords": ["log datei live verfolgen", "tail -f", "logfile beobachten", "datei live mitlesen", "neue zeilen live anzeigen", "protokoll in echtzeit verfolgen"]
   },
   {
     "cmd": "wc -l DATEI",
     "kurz": "Zaehlt die Zeilen einer Datei",
     "kategorie": "Textverarbeitung",
-    "keywords": ["zeilen zaehlen", "wc -l", "anzahl zeilen"]
+    "keywords": ["zeilen zaehlen", "wc -l", "anzahl zeilen ermitteln", "anzahl der zeilen einer datei", "zeilenanzahl pruefen", "wie viele zeilen hat die datei"]
   },
   {
     "cmd": "sort DATEI",
     "kurz": "Sortiert die Zeilen einer Datei alphabetisch",
     "kategorie": "Textverarbeitung",
-    "keywords": ["datei sortieren", "sort", "alphabetisch sortieren"]
+    "keywords": ["datei sortieren", "sort", "alphabetisch sortieren", "zeilen einer datei ordnen", "sortierte ausgabe erzeugen", "inhalt sortiert anzeigen"]
   },
   {
     "cmd": "grep MUSTER DATEI",
     "kurz": "Sucht nach einem Text-Muster in einer Datei",
     "kategorie": "Textverarbeitung",
-    "keywords": ["text suchen in datei", "grep", "muster suchen", "zeile finden"]
+    "keywords": ["text suchen in datei", "grep", "muster suchen", "zeile finden", "textstelle in datei suchen", "nach begriff in datei suchen"]
   },
   {
     "cmd": "uniq DATEI",
     "kurz": "Entfernt aufeinanderfolgende doppelte Zeilen aus einer Datei",
     "kategorie": "Textverarbeitung",
-    "keywords": ["doppelte zeilen entfernen", "uniq", "duplikate entfernen"]
+    "keywords": ["doppelte zeilen entfernen", "uniq", "duplikate entfernen", "eindeutige zeilen anzeigen", "wiederholte zeilen filtern", "doppelte eintraege loeschen"]
   },
   {
     "cmd": "diff DATEI DATEI",
     "kurz": "Vergleicht zwei Dateien und zeigt die Unterschiede an",
     "kategorie": "Textverarbeitung",
-    "keywords": ["dateien vergleichen", "diff", "unterschied zwischen dateien"]
+    "keywords": ["dateien vergleichen", "diff", "unterschied zwischen dateien", "zwei dateien gegenueberstellen", "aenderungen zwischen dateien finden", "textdateien diff vergleich"]
   },
   {
     "cmd": "nano DATEI",
     "kurz": "Oeffnet eine Datei im einfachen Texteditor nano",
     "kategorie": "Textverarbeitung",
-    "keywords": ["datei bearbeiten nano", "nano", "text editor einfach"]
+    "keywords": ["datei bearbeiten nano", "nano", "text editor einfach", "einfache textdatei bearbeiten", "nano editor oeffnen", "datei im terminal editieren"]
   },
   {
     "cmd": "vim DATEI",
     "kurz": "Oeffnet eine Datei im Texteditor vim",
     "kategorie": "Textverarbeitung",
-    "keywords": ["datei bearbeiten vim", "vim", "text editor vim"]
+    "keywords": ["datei bearbeiten vim", "vim", "text editor vim", "vi editor oeffnen", "datei mit vim editieren", "fortgeschrittener terminal editor"]
+  },
+  {
+    "cmd": "cut -d',' -f1 DATEI",
+    "kurz": "Extrahiert eine bestimmte Spalte aus einer Textdatei",
+    "kategorie": "Textverarbeitung",
+    "keywords": ["spalte extrahieren", "cut befehl", "text in spalten aufteilen", "csv spalte auslesen", "bestimmte spalte anzeigen", "feld aus zeile extrahieren"]
+  },
+  {
+    "cmd": "tr 'a-z' 'A-Z' DATEI",
+    "kurz": "Wandelt Zeichen einer Datei um (z.B. Klein- in Grossbuchstaben)",
+    "kategorie": "Textverarbeitung",
+    "keywords": ["zeichen ersetzen", "tr befehl", "text umwandeln gross klein", "kleinbuchstaben in grossbuchstaben", "zeichen uebersetzen", "text zeichenweise ersetzen"]
+  },
+  {
+    "cmd": "sed 's/alt/neu/g' DATEI",
+    "kurz": "Ersetzt Text in einer Datei (Suchen und Ersetzen)",
+    "kategorie": "Textverarbeitung",
+    "keywords": ["text ersetzen in datei", "sed befehl", "suchen und ersetzen", "text durch anderen text ersetzen", "stream editor verwenden", "alle vorkommen ersetzen datei"]
+  },
+  {
+    "cmd": "awk '{print $1}' DATEI",
+    "kurz": "Gibt eine bestimmte Spalte einer strukturierten Textdatei aus",
+    "kategorie": "Textverarbeitung",
+    "keywords": ["spalte mit awk ausgeben", "awk befehl", "textverarbeitung awk", "erste spalte einer datei ausgeben", "awk feld extrahieren", "strukturierten text auswerten"]
+  },
+  {
+    "cmd": "tee DATEI",
+    "kurz": "Schreibt eine Ausgabe gleichzeitig in eine Datei und auf den Bildschirm",
+    "kategorie": "Textverarbeitung",
+    "keywords": ["ausgabe in datei und terminal", "tee befehl", "ausgabe duplizieren", "ausgabe gleichzeitig speichern und anzeigen", "pipe ausgabe in datei schreiben", "output mitschneiden"]
   }
 ]

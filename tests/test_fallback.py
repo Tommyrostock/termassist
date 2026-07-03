@@ -5,20 +5,29 @@ from terminalhelfer.fallback import fuzzy_search, load_commands
 
 def test_load_commands_returns_valid_entries():
     commands = load_commands()
-    assert len(commands) >= 80
+    assert len(commands) >= 150
     for entry in commands:
         assert "cmd" in entry
         assert "kurz" in entry
         assert "keywords" in entry
+        assert len(entry["keywords"]) >= 6
 
 
-def test_neustart_finds_reboot_among_top_results():
+def test_single_keyword_query_finds_reboot():
+    """A bare single-word query must match, not just full sentences."""
     commands = load_commands()
     results = fuzzy_search("neustart", commands)
 
     assert results
-    assert any(r["cmd"] == "sudo reboot" for r in results)
     # "neustart" is a literal keyword of "sudo reboot", so it should win.
+    assert results[0]["cmd"] == "sudo reboot"
+
+
+def test_full_sentence_query_finds_reboot():
+    commands = load_commands()
+    results = fuzzy_search("ich moechte den computer neustarten", commands)
+
+    assert results
     assert results[0]["cmd"] == "sudo reboot"
 
 
