@@ -152,3 +152,7 @@ Einfach einen neuen Eintrag am Ende der Liste ergänzen, `pytest` laufen lassen 
 ## Lizenz
 
 MIT – siehe [LICENSE](LICENSE).
+
+## Kontakt
+
+Fragen, Ideen oder Feedback? Schreib mir gerne direkt auf Discord: tommyrostock_23184
