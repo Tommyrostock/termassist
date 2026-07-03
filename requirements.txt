@@ -1,0 +1,6 @@
+questionary>=2.0
+rich>=13.0
+rapidfuzz>=3.0
+requests>=2.31
+pyperclip>=1.8
+pytest>=7.0
