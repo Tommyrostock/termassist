@@ -7,7 +7,7 @@ is patched to a fixed, known set rather than relying on whatever happens to
 be installed on the machine running the tests.
 """
 
-from terminalhelfer import typo
+from termassist import typo
 
 FAKE_BEFEHLE = frozenset({"ls", "grep", "cat", "reboot", "firewall-cmd"})
 

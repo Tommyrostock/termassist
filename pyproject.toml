@@ -3,13 +3,13 @@ requires = ["setuptools>=68.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "terminalhelfer"
+name = "termassist"
 version = "0.1.0"
 description = "Ein deutschsprachiger Terminal-Assistent fuer Linux-Einsteiger"
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.10"
-authors = [{ name = "terminalhelfer contributors" }]
+authors = [{ name = "termassist contributors" }]
 keywords = ["cli", "linux", "terminal", "deutsch", "ollama"]
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -30,10 +30,10 @@ dependencies = [
 dev = ["pytest>=7.0"]
 
 [project.scripts]
-terminalhelfer = "terminalhelfer.cli:main"
+termassist = "termassist.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["terminalhelfer*"]
+include = ["termassist*"]
 
 [tool.setuptools.package-data]
-terminalhelfer = ["data/*.json", "shell/*.sh"]
+termassist = ["data/*.json", "shell/*.sh"]

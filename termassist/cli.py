@@ -1,4 +1,4 @@
-"""Command-line entry point for terminalhelfer."""
+"""Command-line entry point for termassist."""
 
 from __future__ import annotations
 
@@ -23,10 +23,10 @@ EXIT_VERMUTLICH_TIPPFEHLER = 2
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        prog="terminalhelfer",
+        prog="termassist",
         description=(
             "Ein deutschsprachiger Terminal-Assistent: beschreibe, was du tun "
-            "moechtest, und terminalhelfer schlaegt passende Linux-Befehle vor."
+            "moechtest, und termassist schlaegt passende Linux-Befehle vor."
         ),
     )
     parser.add_argument(
@@ -38,7 +38,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--model",
         default=None,
-        help="Ollama-Modell ueberschreiben (Standard: qwen2.5:1.5b-instruct oder $TERMINALHELFER_MODEL)",
+        help="Ollama-Modell ueberschreiben (Standard: qwen2.5:1.5b-instruct oder $TERMASSIST_MODEL)",
     )
     parser.add_argument("--no-ai", action="store_true", help="Erzwingt reinen Offline-Fallback-Modus, ohne Ollama")
     parser.add_argument(
@@ -63,7 +63,7 @@ def build_parser() -> argparse.ArgumentParser:
         help="Richtet die command_not_found_handle-Integration in ~/.bashrc ein",
     )
     parser.add_argument("--debug", action="store_true", help="Zeigt zusaetzliche Diagnose-Ausgaben bei Fehlern")
-    parser.add_argument("--version", action="version", version=f"terminalhelfer {__version__}")
+    parser.add_argument("--version", action="version", version=f"termassist {__version__}")
     return parser
 
 

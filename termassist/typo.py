@@ -5,9 +5,9 @@ natural-language request (e.g. "firewall ausschalten").
 This matters for the command_not_found_handle integration: Ubuntu's own
 apt-based command-not-found tool is actually quite good at raw binary-name
 spelling correction (it has its own package database for that), while
-terminalhelfer's curated database is optimized for intent, not spelling
+termassist's curated database is optimized for intent, not spelling
 correction. So when the input looks like a plain typo of some installed
-binary, terminalhelfer intentionally steps aside and lets apt's logic take
+binary, termassist intentionally steps aside and lets apt's logic take
 over instead of guessing.
 
 Multi-word input is never considered a typo case here - see

@@ -1,4 +1,4 @@
-"""Persistent user settings for terminalhelfer (e.g. whether Ollama should be
+"""Persistent user settings for termassist (e.g. whether Ollama should be
 used by default). Stored as a small JSON file under the user's config
 directory, independent of the per-invocation ``--ki`` / ``--no-ai`` flags.
 """
@@ -9,7 +9,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-CONFIG_DIR = Path.home() / ".config" / "terminalhelfer"
+CONFIG_DIR = Path.home() / ".config" / "termassist"
 CONFIG_PATH = CONFIG_DIR / "config.json"
 
 DEFAULTS: dict[str, Any] = {"ki_aktiviert": False}

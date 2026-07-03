@@ -1,4 +1,4 @@
-"""Offline fuzzy search fallback for terminalhelfer.
+"""Offline fuzzy search fallback for termassist.
 
 Matches free-text user input against the curated command database without any
 AI involved. Prefers rapidfuzz for speed and quality, but falls back to the

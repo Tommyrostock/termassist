@@ -4,18 +4,18 @@ relies on to decide whether to also print the plain shell error message.
 
 from unittest.mock import patch
 
-from terminalhelfer import cli
+from termassist import cli
 
 
 def test_single_shot_exit_code_is_zero_when_something_is_found():
-    with patch("terminalhelfer.ui.show_mode_banner"), patch("terminalhelfer.ui.handle_results"):
+    with patch("termassist.ui.show_mode_banner"), patch("termassist.ui.handle_results"):
         code = cli.main(["neustart"])
 
     assert code == 0
 
 
 def test_single_shot_exit_code_is_one_when_nothing_is_found():
-    with patch("terminalhelfer.ui.show_mode_banner"), patch("terminalhelfer.ui.handle_results"):
+    with patch("termassist.ui.show_mode_banner"), patch("termassist.ui.handle_results"):
         code = cli.main(["xxxxyyyzzzzqqqqwwwwuuuu"])
 
     assert code == 1
@@ -25,9 +25,9 @@ def test_direct_command_short_circuits_matcher():
     """A directly valid command (e.g. 'git status') must skip the matcher
     entirely and go straight to the confirm/execute flow.
     """
-    with patch("terminalhelfer.direct.ist_direkter_befehl", return_value=True), patch(
-        "terminalhelfer.ui.confirm_and_execute"
-    ) as mock_confirm, patch("terminalhelfer.matcher.match") as mock_match:
+    with patch("termassist.direct.ist_direkter_befehl", return_value=True), patch(
+        "termassist.ui.confirm_and_execute"
+    ) as mock_confirm, patch("termassist.matcher.match") as mock_match:
         code = cli.main(["git status"])
 
     mock_confirm.assert_called_once_with("git status")
@@ -36,8 +36,8 @@ def test_direct_command_short_circuits_matcher():
 
 
 def test_ai_disabled_by_default_end_to_end():
-    with patch("terminalhelfer.ui.show_mode_banner"), patch("terminalhelfer.ui.handle_results"), patch(
-        "terminalhelfer.ollama_client.is_available", return_value=True
+    with patch("termassist.ui.show_mode_banner"), patch("termassist.ui.handle_results"), patch(
+        "termassist.ollama_client.is_available", return_value=True
     ) as mock_available:
         cli.main(["neustart"])
 
@@ -50,8 +50,8 @@ def test_single_word_typo_returns_exit_code_two():
     command_not_found_handle.sh knows to defer to apt's own spelling
     correction instead of showing "nothing found".
     """
-    with patch("terminalhelfer.matcher.match", return_value=([], "fallback")), patch(
-        "terminalhelfer.typo.ist_wahrscheinlich_tippfehler", return_value=True
+    with patch("termassist.matcher.match", return_value=([], "fallback")), patch(
+        "termassist.typo.ist_wahrscheinlich_tippfehler", return_value=True
     ):
         code = cli.main(["sl"])
 
@@ -65,8 +65,8 @@ def test_exit_code_is_one_when_typo_check_also_says_no():
     itself (see test_typo.py) - here we just verify cli.py wires the result
     of that check through correctly.
     """
-    with patch("terminalhelfer.matcher.match", return_value=([], "fallback")), patch(
-        "terminalhelfer.typo.ist_wahrscheinlich_tippfehler", return_value=False
+    with patch("termassist.matcher.match", return_value=([], "fallback")), patch(
+        "termassist.typo.ist_wahrscheinlich_tippfehler", return_value=False
     ) as mock_typo:
         code = cli.main(["alle dateien loeschen"])
 

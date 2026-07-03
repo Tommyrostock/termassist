@@ -28,7 +28,7 @@ PREFILTER_LIMIT = 30
 
 def get_model_name(override: str | None = None) -> str:
     """Resolve the Ollama model name from CLI flag, env var, or default."""
-    return override or os.environ.get("TERMINALHELFER_MODEL") or DEFAULT_MODEL
+    return override or os.environ.get("TERMASSIST_MODEL") or DEFAULT_MODEL
 
 
 def is_available(host: str = DEFAULT_HOST, timeout: float = AVAILABILITY_TIMEOUT) -> bool:

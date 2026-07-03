@@ -1,6 +1,6 @@
 """Tests for direct valid-command detection."""
 
-from terminalhelfer.direct import ist_direkter_befehl
+from termassist.direct import ist_direkter_befehl
 
 
 def test_real_command_is_direct():

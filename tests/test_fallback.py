@@ -1,6 +1,6 @@
 """Tests for the offline fuzzy search fallback."""
 
-from terminalhelfer.fallback import fuzzy_search, load_commands
+from termassist.fallback import fuzzy_search, load_commands
 
 
 def test_load_commands_returns_valid_entries():

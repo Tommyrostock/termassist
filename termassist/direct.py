@@ -1,6 +1,6 @@
 """Detects when the user already typed a real, existing shell command.
 
-If so, terminalhelfer should skip the matcher/AI entirely and jump straight
+If so, termassist should skip the matcher/AI entirely and jump straight
 to the existing confirm-and-execute flow, instead of showing a suggestion
 list for something that isn't even ambiguous.
 """
