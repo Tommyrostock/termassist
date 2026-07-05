@@ -12,6 +12,14 @@ umgesetzt. Der Code wurde manuell getestet und iterativ verbessert, unter andere
 
 <!-- TODO: Screenshot/GIF einfuegen -->
 
+## Getestet auf
+
+- ✅ **Ubuntu** (mehrere Versionen, Bash) — vollständig getestet, inklusive Hintergrund-Integration
+- ✅ **Linux Mint 22.3 "Zena"** (Cinnamon, Bash) — vollständig getestet auf einer frischen Installation, funktioniert identisch zu Ubuntu
+- 🔄 **Kali Linux** (Zsh) — Unterstützung in Arbeit, siehe Hinweis unten
+
+Falls du TermAssist auf einer anderen Distribution testest, freue ich mich über Rückmeldung (siehe Kontakt-Abschnitt) oder einen Pull Request.
+
 ## Voraussetzungen
 
 - **Linux** (getestet unter Ubuntu; sollte auf den meisten Debian-basierten Distributionen laufen)
@@ -41,6 +49,23 @@ an Ort und Stelle vor – inklusive Sicherheitsabfrage, bevor irgendetwas ausgef
 > `--break-system-packages` wird auf neueren Debian/Ubuntu-Versionen benötigt, da `pip` dort standardmäßig keine
 > Pakete außerhalb einer virtuellen Umgebung installiert. Wer lieber eine virtuelle Umgebung nutzt
 > (`python3 -m venv .venv && source .venv/bin/activate`), kann das Flag weglassen.
+
+`--install-hook` ist gefahrlos mehrfach ausführbar: Ist bereits eine (auch unvollständige, z.B. durch ein
+TermAssist-Update entstandene) Installation vorhanden, ergänzt der Befehl automatisch nur das, was fehlt –
+du musst vorher nichts manuell aus der `.bashrc`/`.zshrc` löschen.
+
+## Hinweis für Zsh-Nutzer (z.B. aktuelles Kali Linux)
+
+TermAssist erkennt automatisch, ob du Bash oder Zsh nutzt, und installiert den Hook in die passende Datei
+(`~/.bashrc` bzw. `~/.zshrc`). Falls `--install-hook` deine Shell nicht korrekt erkennt, kannst du sie explizit
+angeben:
+
+```bash
+termassist --install-hook --shell zsh
+```
+
+Details zur Zsh-Integration findest du in
+[`termassist/shell/command_not_found_handler.zsh`](termassist/shell/command_not_found_handler.zsh).
 
 ## Optional: KI-Modus aktivieren
 
@@ -108,7 +133,8 @@ termassist "rechner neu starten"    # Einmal-Modus fuer eine einzelne Eingabe
 
 | Flag | Beschreibung |
 |---|---|
-| `--install-hook` | Richtet die `command_not_found_handle`-Integration in `~/.bashrc` ein |
+| `--install-hook` | Richtet die `command_not_found_handle(r)`-Integration in `~/.bashrc` bzw. `~/.zshrc` ein |
+| `--shell {bash,zsh}` | Zielshell für `--install-hook` erzwingen, falls die automatische Erkennung nicht klappt |
 | `--ki` | Aktiviert die optionale KI-Verfeinerung (Ollama) für diesen einen Aufruf |
 | `--ki-aktivieren` / `--ki-deaktivieren` | Aktiviert/deaktiviert die KI-Verfeinerung dauerhaft in den Einstellungen |
 | `--model NAME` | Ollama-Modell überschreiben (Standard: `qwen2.5:1.5b-instruct`, oder `$TERMASSIST_MODEL`) |
@@ -146,8 +172,9 @@ Einfach einen neuen Eintrag am Ende der Liste ergänzen, `pytest` laufen lassen 
 
 ## Deinstallation
 
-Öffne `~/.bashrc` und entferne den Block zwischen den Kommentaren `# >>> termassist >>>` und
-`# <<< termassist <<<`, dann `source ~/.bashrc` erneut ausführen.
+Öffne `~/.bashrc` (bzw. `~/.zshrc` unter Zsh) und entferne den Block zwischen den Kommentaren
+`# >>> termassist >>>` und `# <<< termassist <<<`, dann die Datei erneut per `source` laden oder das Terminal
+neu starten.
 
 ## Lizenz
 

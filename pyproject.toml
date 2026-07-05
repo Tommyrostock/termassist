@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "termassist"
-version = "0.1.0"
+version = "0.5.0"
 description = "Ein deutschsprachiger Terminal-Assistent fuer Linux-Einsteiger"
 readme = "README.md"
 license = { text = "MIT" }
@@ -36,4 +36,4 @@ termassist = "termassist.cli:main"
 include = ["termassist*"]
 
 [tool.setuptools.package-data]
-termassist = ["data/*.json", "shell/*.sh"]
+termassist = ["data/*.json", "shell/*.sh", "shell/*.zsh"]

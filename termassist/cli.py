@@ -60,7 +60,13 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--install-hook",
         action="store_true",
-        help="Richtet die command_not_found_handle-Integration in ~/.bashrc ein",
+        help="Richtet die command_not_found_handle(r)-Integration in ~/.bashrc bzw. ~/.zshrc ein",
+    )
+    parser.add_argument(
+        "--shell",
+        choices=["bash", "zsh"],
+        default=None,
+        help="Zielshell fuer --install-hook erzwingen, falls die automatische Erkennung nicht klappt",
     )
     parser.add_argument("--debug", action="store_true", help="Zeigt zusaetzliche Diagnose-Ausgaben bei Fehlern")
     parser.add_argument("--version", action="version", version=f"termassist {__version__}")
@@ -139,7 +145,7 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     if args.install_hook:
-        return hook_installer.install()
+        return hook_installer.install(shell=args.shell)
 
     if args.ki_aktivieren:
         config.set_ki_enabled(True)
