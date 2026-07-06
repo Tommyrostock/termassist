@@ -38,6 +38,7 @@ Falls du TermAssist auf einer anderen Distribution testest, freue ich mich über
 git clone https://github.com/Tommyrostock/termassist.git
 cd termassist
 pip install -e . --break-system-packages
+export PATH="$HOME/.local/bin:$PATH"
 termassist --install-hook
 source ~/.bashrc
 ```
