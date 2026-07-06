@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TermAssist — Deutschsprachiger Terminal-Assistent für Linux-Einsteiger</title>
+<meta name="description" content="TermAssist übersetzt natürliche Sprache in Linux-Befehle. Direkt im Terminal, offline, und immer erst nach deiner Bestätigung.">
+
+<meta property="og:title" content="TermAssist — sag dem Terminal, was du willst">
+<meta property="og:description" content="Ein deutschsprachiger Terminal-Assistent für Linux-Einsteiger. Beschreib in eigenen Worten, was du tun möchtest — TermAssist findet den passenden Befehl.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    /* Gruvbox-grounded palette */
+    --bg-deep:   #1d2021;
+    --bg:        #282828;
+    --surface:   #32302f;
+    --raised:    #3c3836;
+    --line:      #504945;
+    --fg:        #ebdbb2;
+    --muted:     #a89984;
+    --faint:     #7c6f64;
+    --orange:    #fe8019;
+    --yellow:    #fabd2f;
+    --green:     #8ec07c;
+    --red:       #fb4934;
+    --blue:      #83a598;
+
+    --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    --disp: "Bricolage Grotesque", system-ui, sans-serif;
+    --body: "Inter", system-ui, sans-serif;
+
+    --maxw: 1080px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+
+  body{
+    background:var(--bg-deep);
+    color:var(--fg);
+    font-family:var(--body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  ::selection{background:var(--orange);color:var(--bg-deep)}
+
+  a{color:inherit;text-decoration:none}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:color-mix(in srgb, var(--bg-deep) 88%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    height:60px;
+  }
+  .brand{
+    font-family:var(--mono);font-weight:700;font-size:1.05rem;
+    letter-spacing:-.02em;display:flex;align-items:center;gap:2px;
+  }
+  .brand .cursor{
+    color:var(--orange);
+    animation:blink 1.1s steps(1) infinite;
+  }
+  @keyframes blink{50%{opacity:0}}
+  .nav-cta{
+    font-family:var(--mono);font-size:.82rem;font-weight:500;
+    color:var(--fg);
+    border:1px solid var(--line);
+    padding:8px 15px;border-radius:7px;
+    display:inline-flex;align-items:center;gap:7px;
+    transition:border-color .18s, color .18s, background .18s;
+  }
+  .nav-cta:hover{border-color:var(--orange);color:var(--orange)}
+  .nav-cta:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    padding:72px 0 40px;
+  }
+  .hero::before{
+    /* warm ambient glow behind the terminal */
+    content:"";position:absolute;
+    top:120px;left:50%;transform:translateX(-50%);
+    width:min(720px,90vw);height:460px;
+    background:radial-gradient(ellipse at center, rgba(254,128,25,.16), transparent 68%);
+    filter:blur(20px);z-index:0;pointer-events:none;
+  }
+  .hero .wrap{position:relative;z-index:1}
+
+  .eyebrow{
+    font-family:var(--mono);font-size:.8rem;font-weight:500;
+    color:var(--orange);letter-spacing:.02em;
+    display:inline-flex;align-items:center;gap:9px;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{
+    content:"";width:22px;height:1px;background:var(--orange);opacity:.7;
+  }
+
+  h1{
+    font-family:var(--disp);
+    font-weight:800;
+    font-size:clamp(2.4rem, 6.2vw, 4.4rem);
+    line-height:1.02;
+    letter-spacing:-.025em;
+    max-width:16ch;
+  }
+  h1 .em{color:var(--orange);font-style:normal}
+  h1 .not{
+    font-family:var(--mono);font-weight:700;
+    font-size:.82em;
+    color:var(--fg);
+    background:var(--raised);
+    border:1px solid var(--line);
+    padding:.02em .32em;border-radius:8px;
+    display:inline-block;
+    white-space:nowrap;
+  }
+
+  .lede{
+    font-size:clamp(1.05rem,1.8vw,1.22rem);
+    color:var(--muted);
+    max-width:52ch;
+    margin-top:26px;
+  }
+  .lede strong{color:var(--fg);font-weight:600}
+
+  /* ---------- terminal signature ---------- */
+  .term{
+    margin-top:44px;
+    background:var(--bg);
+    border:1px solid var(--line);
+    border-radius:13px;
+    box-shadow:0 26px 60px -28px rgba(0,0,0,.75), 0 2px 0 rgba(235,219,178,.03) inset;
+    overflow:hidden;
+    max-width:640px;
+  }
+  .term-bar{
+    display:flex;align-items:center;gap:8px;
+    padding:12px 15px;
+    background:var(--bg-deep);
+    border-bottom:1px solid var(--line);
+  }
+  .dot{width:11px;height:11px;border-radius:50%}
+  .dot.r{background:#cc4433}.dot.y{background:#d79921}.dot.g{background:#689d6a}
+  .term-title{
+    font-family:var(--mono);font-size:.72rem;color:var(--faint);
+    margin-left:8px;
+  }
+  .term-body{
+    font-family:var(--mono);
+    font-size:.86rem;
+    line-height:1.85;
+    padding:20px 20px 24px;
+    min-height:268px;
+  }
+  @media(max-width:460px){.term-body{font-size:.76rem;min-height:250px}}
+
+  .ln{white-space:pre-wrap;word-break:break-word}
+  .prompt{color:var(--green)}
+  .prompt .path{color:var(--blue)}
+  .typed{color:var(--fg)}
+  .caret{
+    display:inline-block;width:8px;height:1.05em;
+    background:var(--orange);vertical-align:-2px;margin-left:1px;
+    animation:blink 1.1s steps(1) infinite;
+  }
+  .err{color:var(--red)}
+  .ask{color:var(--yellow);font-weight:700}
+  .opt{color:var(--muted)}
+  .opt .sel{color:var(--yellow)}
+  .opt.active{color:var(--fg)}
+  .opt.active .cmd{color:var(--green);font-weight:700}
+  .opt .desc{color:var(--faint)}
+
+  .reveal{opacity:0;transform:translateY(4px);transition:opacity .3s, transform .3s}
+  .reveal.show{opacity:1;transform:none}
+
+  /* ---------- install line under hero ---------- */
+  .quickinstall{
+    margin-top:26px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;
+    max-width:640px;
+  }
+  .copyline{
+    flex:1;min-width:240px;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    font-family:var(--mono);font-size:.82rem;
+    background:var(--bg);border:1px solid var(--line);
+    border-radius:9px;padding:11px 14px;
+    cursor:pointer;color:var(--fg);
+    transition:border-color .18s;
+  }
+  .copyline:hover{border-color:var(--orange)}
+  .copyline:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+  .copyline .gp{color:var(--faint)}
+  .copyline .cp{
+    font-size:.72rem;color:var(--muted);display:flex;align-items:center;gap:5px;
+    flex-shrink:0;
+  }
+  .copyline.copied .cp{color:var(--green)}
+
+  .ghbtn{
+    font-family:var(--mono);font-size:.82rem;font-weight:500;
+    background:var(--orange);color:var(--bg-deep);
+    padding:11px 18px;border-radius:9px;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:filter .18s, transform .05s;
+    white-space:nowrap;
+  }
+  .ghbtn:hover{filter:brightness(1.08)}
+  .ghbtn:active{transform:translateY(1px)}
+  .ghbtn:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+
+  /* ---------- section scaffolding ---------- */
+  section{padding:76px 0}
+  .sec-eyebrow{
+    font-family:var(--mono);font-size:.76rem;color:var(--orange);
+    letter-spacing:.03em;margin-bottom:14px;
+  }
+  h2{
+    font-family:var(--disp);font-weight:700;
+    font-size:clamp(1.7rem,3.4vw,2.5rem);
+    letter-spacing:-.02em;line-height:1.1;max-width:20ch;
+  }
+  .sec-intro{color:var(--muted);max-width:54ch;margin-top:14px;font-size:1.02rem}
+
+  /* ---------- examples ---------- */
+  .ex-grid{
+    margin-top:40px;display:grid;gap:16px;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:720px){.ex-grid{grid-template-columns:1fr 1fr 1fr}}
+  .ex{
+    background:var(--bg);border:1px solid var(--line);border-radius:11px;
+    padding:18px 18px 20px;font-family:var(--mono);
+    transition:border-color .18s, transform .18s;
+  }
+  .ex:hover{border-color:var(--faint);transform:translateY(-2px)}
+  .ex .said{color:var(--muted);font-size:.82rem;margin-bottom:12px}
+  .ex .said b{color:var(--fg);font-weight:500}
+  .ex .arrow{color:var(--orange);margin-bottom:6px;font-size:.9rem}
+  .ex .cmd{color:var(--green);font-weight:700;font-size:.92rem}
+  .ex .note{
+    color:var(--faint);font-family:var(--body);font-size:.82rem;
+    margin-top:10px;line-height:1.5;
+  }
+
+  /* ---------- features ---------- */
+  .feat-grid{
+    margin-top:44px;display:grid;gap:1px;
+    background:var(--line);border:1px solid var(--line);
+    border-radius:13px;overflow:hidden;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:660px){.feat-grid{grid-template-columns:1fr 1fr}}
+  .feat{
+    background:var(--bg);padding:28px 26px;
+    transition:background .18s;
+  }
+  .feat:hover{background:var(--surface)}
+  .feat .fh{
+    display:flex;align-items:center;gap:12px;margin-bottom:12px;
+  }
+  .feat .glyph{
+    font-family:var(--mono);font-weight:700;font-size:1rem;
+    color:var(--bg-deep);background:var(--orange);
+    width:34px;height:34px;border-radius:8px;
+    display:grid;place-items:center;flex-shrink:0;
+  }
+  .feat:nth-child(2) .glyph{background:var(--yellow)}
+  .feat:nth-child(3) .glyph{background:var(--green)}
+  .feat:nth-child(4) .glyph{background:var(--blue)}
+  .feat h3{
+    font-family:var(--disp);font-weight:700;font-size:1.15rem;
+    letter-spacing:-.01em;
+  }
+  .feat p{color:var(--muted);font-size:.95rem}
+
+  /* ---------- install steps ---------- */
+  .install-wrap{
+    margin-top:40px;
+    background:var(--bg);border:1px solid var(--line);
+    border-radius:13px;overflow:hidden;
+  }
+  .step{
+    display:grid;grid-template-columns:auto 1fr;gap:18px;
+    padding:20px 24px;
+    border-bottom:1px solid var(--line);
+    align-items:center;
+  }
+  .step:last-of-type{border-bottom:none}
+  .step .num{
+    font-family:var(--mono);font-weight:700;font-size:.85rem;
+    color:var(--orange);
+    border:1px solid var(--line);border-radius:7px;
+    width:30px;height:30px;display:grid;place-items:center;
+  }
+  .step .st-cmd{
+    font-family:var(--mono);font-size:.86rem;color:var(--fg);
+    word-break:break-all;
+  }
+  .step .st-cmd .c{color:var(--green)}
+  .step .st-desc{
+    font-family:var(--body);font-size:.82rem;color:var(--faint);margin-top:3px;
+  }
+  .install-foot{
+    padding:18px 24px;font-size:.85rem;color:var(--muted);
+    display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;
+    background:var(--bg-deep);
+  }
+  .install-foot code{
+    font-family:var(--mono);color:var(--yellow);font-size:.82rem;
+    background:var(--surface);padding:1px 6px;border-radius:5px;
+  }
+
+  .install-copy{
+    margin-top:16px;
+  }
+  .install-copy .copyline{max-width:none}
+
+  /* ---------- footer ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding:44px 0 60px;
+    color:var(--muted);font-size:.88rem;
+  }
+  .foot-top{
+    display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;
+    align-items:flex-start;
+  }
+  .foot-brand{font-family:var(--mono);font-weight:700;color:var(--fg);font-size:1rem}
+  .foot-links{display:flex;flex-wrap:wrap;gap:22px;font-family:var(--mono);font-size:.83rem}
+  .foot-links a{color:var(--muted);transition:color .16s}
+  .foot-links a:hover{color:var(--orange)}
+  .foot-note{
+    margin-top:28px;padding-top:22px;border-top:1px solid var(--line);
+    font-size:.8rem;color:var(--faint);line-height:1.7;max-width:60ch;
+  }
+  .foot-note a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">termassist<span class="cursor">▍</span></a>
+    <a class="nav-cta" href="https://github.com/Tommyrostock/termassist" target="_blank" rel="noopener">
+      GitHub
+      <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4.5 3.5h6a1 1 0 0 1 1 1v6h-1.4V6.4L4.9 11.6 3.9 10.6 9.1 5.4H4.5V3.5Z"/></svg>
+    </a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">Deutschsprachiger Terminal-Assistent</span>
+    <h1>Sag dem Terminal, <span class="em">was</span> du willst — nicht <span class="em">wie</span>.</h1>
+    <p class="lede">
+      TermAssist übersetzt deine Worte in den passenden Linux-Befehl. Direkt an Ort und Stelle,
+      sobald die Shell mal <strong>nicht weiterweiß</strong> — und
+      führt nie etwas aus, bevor du es bestätigst.
+    </p>
+
+    <!-- SIGNATURE: animated terminal -->
+    <div class="term" id="term" role="img" aria-label="Terminal-Beispiel: Der Befehl 'neustart' ist unbekannt, TermAssist schlägt 'sudo reboot' und 'sudo shutdown now' vor.">
+      <div class="term-bar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="term-title">tom@rostock: ~</span>
+      </div>
+      <div class="term-body" id="termBody">
+        <div class="ln"><span class="prompt">tom@rostock<span style="color:var(--fg)">:</span><span class="path">~</span>$</span> <span class="typed" id="typed"></span><span class="caret" id="caret"></span></div>
+        <div class="ln reveal" id="l-err"><span class="err">bash: neustart: Kommando nicht gefunden.</span></div>
+        <div class="ln reveal" id="l-gap" style="line-height:1">&nbsp;</div>
+        <div class="ln reveal" id="l-ask"><span class="ask">Welcher Befehl passt?</span></div>
+        <div class="ln reveal opt active" id="l-o1"><span class="sel">❯</span> <span class="cmd">sudo reboot</span> <span class="desc">— Startet den Computer sofort neu</span></div>
+        <div class="ln reveal opt" id="l-o2">&nbsp;&nbsp;<span>sudo shutdown now</span> <span class="desc">— Fährt den Computer herunter</span></div>
+        <div class="ln reveal opt" id="l-o3">&nbsp;&nbsp;✏️  <span class="desc">Selbst eingeben / bearbeiten</span></div>
+        <div class="ln reveal opt" id="l-o4">&nbsp;&nbsp;❌ <span class="desc">Abbrechen</span></div>
+      </div>
+    </div>
+
+    <div class="quickinstall">
+      <button class="copyline" id="quickCopy" data-copy="git clone https://github.com/Tommyrostock/termassist.git">
+        <span><span class="gp">$</span> git clone …/termassist.git</span>
+        <span class="cp" id="quickCp">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.3"/><path d="M3.5 10.5H2.8A1.3 1.3 0 0 1 1.5 9.2V2.8A1.3 1.3 0 0 1 2.8 1.5h6.4a1.3 1.3 0 0 1 1.3 1.3v.7"/></svg>
+          <span id="quickCpTxt">Kopieren</span>
+        </span>
+      </button>
+      <a class="ghbtn" href="https://github.com/Tommyrostock/termassist" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        Zum Repository
+      </a>
+    </div>
+  </div>
+</header>
+
+<section id="beispiele">
+  <div class="wrap">
+    <div class="sec-eyebrow">// so fühlt es sich an</div>
+    <h2>Tipp einfach, was dir in den Sinn kommt.</h2>
+    <p class="sec-intro">Auch umgangssprachlich und in ganzen Sätzen. TermAssist erkennt, was gemeint ist, und zeigt den passenden Befehl mit einer Erklärung auf Deutsch.</p>
+
+    <div class="ex-grid">
+      <div class="ex">
+        <div class="said">Du tippst: <b>firewall ausschalten</b></div>
+        <div class="arrow">❯</div>
+        <div class="cmd">sudo ufw disable</div>
+        <div class="note">Deaktiviert die Firewall.</div>
+      </div>
+      <div class="ex">
+        <div class="said">Du tippst: <b>mach mal platz frei</b></div>
+        <div class="arrow">❯</div>
+        <div class="cmd">sudo apt autoremove</div>
+        <div class="note">Entfernt nicht mehr benötigte Pakete automatisch.</div>
+      </div>
+      <div class="ex">
+        <div class="said">Du tippst: <b>rechner neu starten</b></div>
+        <div class="arrow">❯</div>
+        <div class="cmd">sudo reboot</div>
+        <div class="note">Startet den Computer sofort neu.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="warum" style="background:var(--bg);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-eyebrow">// warum es sich sicher anfühlt</div>
+    <h2>Hilfsbereit, aber nie eigenmächtig.</h2>
+    <p class="sec-intro">TermAssist ist für Einsteiger gebaut — vier Grundsätze sorgen dafür, dass du dabei die Kontrolle behältst.</p>
+
+    <div class="feat-grid">
+      <div class="feat">
+        <div class="fh"><span class="glyph">?</span><h3>Fragt immer erst nach</h3></div>
+        <p>Kein Befehl läuft, bevor du ihn auswählst und bestätigst. Abbrechen oder selbst bearbeiten geht jederzeit.</p>
+      </div>
+      <div class="feat">
+        <div class="fh"><span class="glyph">⚡</span><h3>Läuft komplett offline</h3></div>
+        <p>Die lokale Befehlsdatenbank reicht für die meisten Anfragen — auch auf älterer oder schwacher Hardware.</p>
+      </div>
+      <div class="feat">
+        <div class="fh"><span class="glyph">✓</span><h3>Erfindet nie einen Befehl</h3></div>
+        <p>Vorschläge stammen ausschließlich aus einer kuratierten, versionierten Datenbank. Nichts wird frei zusammengesetzt.</p>
+      </div>
+      <div class="feat">
+        <div class="fh"><span class="glyph">+</span><h3>Optionaler KI-Modus</h3></div>
+        <p>Für frei formulierte Sätze lässt sich lokal Ollama zuschalten. Standardmäßig aus — du entscheidest.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="installation">
+  <div class="wrap">
+    <div class="sec-eyebrow">// in einer Minute startklar</div>
+    <h2>Installation</h2>
+    <p class="sec-intro">Vier Zeilen im Terminal. Danach arbeitet TermAssist unsichtbar im Hintergrund und meldet sich nur, wenn ein Befehl nicht erkannt wird.</p>
+
+    <div class="install-wrap">
+      <div class="step">
+        <div class="num">1</div>
+        <div>
+          <div class="st-cmd"><span class="c">git clone</span> https://github.com/Tommyrostock/termassist.git</div>
+          <div class="st-desc">Projekt herunterladen</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <div>
+          <div class="st-cmd"><span class="c">cd</span> termassist && <span class="c">pip install</span> -e . --break-system-packages</div>
+          <div class="st-desc">TermAssist installieren</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <div>
+          <div class="st-cmd"><span class="c">termassist</span> --install-hook</div>
+          <div class="st-desc">Hintergrund-Integration in der Shell einrichten</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">4</div>
+        <div>
+          <div class="st-cmd"><span class="c">source</span> ~/.bashrc</div>
+          <div class="st-desc">Terminal neu laden — fertig.</div>
+        </div>
+      </div>
+      <div class="install-foot">
+        <span>Voraussetzungen: Linux (getestet unter Ubuntu &amp; Linux Mint), <code>Python 3.10+</code>, <code>pip</code>, <code>git</code> und <code>bash</code>.</span>
+      </div>
+    </div>
+
+    <div class="install-copy">
+      <button class="copyline" id="fullCopy" data-copy="git clone https://github.com/Tommyrostock/termassist.git
+cd termassist && pip install -e . --break-system-packages
+termassist --install-hook
+source ~/.bashrc">
+        <span><span class="gp">⧉</span> Alle vier Befehle kopieren</span>
+        <span class="cp" id="fullCp">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.3"/><path d="M3.5 10.5H2.8A1.3 1.3 0 0 1 1.5 9.2V2.8A1.3 1.3 0 0 1 2.8 1.5h6.4a1.3 1.3 0 0 1 1.3 1.3v.7"/></svg>
+          <span id="fullCpTxt">Kopieren</span>
+        </span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">termassist<span style="color:var(--orange)">▍</span></div>
+        <div style="margin-top:8px;max-width:34ch">Ein deutschsprachiger Terminal-Assistent für Linux-Einsteiger.</div>
+      </div>
+      <div class="foot-links">
+        <a href="https://github.com/Tommyrostock/termassist" target="_blank" rel="noopener">Repository</a>
+        <a href="https://github.com/Tommyrostock/termassist/releases" target="_blank" rel="noopener">Releases</a>
+        <a href="https://github.com/Tommyrostock/termassist/blob/main/LICENSE" target="_blank" rel="noopener">MIT-Lizenz</a>
+      </div>
+    </div>
+    <div class="foot-note">
+      Konzept &amp; Testing von Tommyrostock, Implementierung gemeinsam mit Claude (Anthropic).
+      Fragen oder Feedback? Auf Discord: <b style="color:var(--muted)">tommyrostock_23184</b>.
+      &nbsp;·&nbsp; Nicht mit GitHub, Canonical oder Ubuntu verbunden.
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var typedEl = document.getElementById("typed");
+  var caret   = document.getElementById("caret");
+  var cmd = "neustart";
+  var revealIds = ["l-err","l-gap","l-ask","l-o1","l-o2","l-o3","l-o4"];
+
+  function showAll(){
+    typedEl.textContent = cmd;
+    caret.style.display = "none";
+    revealIds.forEach(function(id){document.getElementById(id).classList.add("show");});
+  }
+
+  function run(){
+    var i = 0;
+    function typeNext(){
+      if(i <= cmd.length){
+        typedEl.textContent = cmd.slice(0,i);
+        i++;
+        setTimeout(typeNext, 78 + Math.random()*60);
+      } else {
+        // command entered, shell "responds"
+        setTimeout(function(){
+          caret.style.display = "none";
+          revealStep(0);
+        }, 420);
+      }
+    }
+    function revealStep(n){
+      if(n >= revealIds.length) return;
+      var delay = (n===0) ? 0 : (n<=2 ? 260 : 150);
+      setTimeout(function(){
+        document.getElementById(revealIds[n]).classList.add("show");
+        revealStep(n+1);
+      }, delay);
+    }
+    typeNext();
+  }
+
+  if(reduce){
+    showAll();
+  } else {
+    // start when the terminal scrolls into view (or immediately if already visible)
+    var term = document.getElementById("term");
+    var started = false;
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting && !started){
+          started = true;
+          setTimeout(run, 350);
+          io.disconnect();
+        }
+      });
+    }, {threshold:.35});
+    io.observe(term);
+  }
+
+  // copy-to-clipboard
+  function wireCopy(btnId, txtId, labelId){
+    var btn = document.getElementById(btnId);
+    if(!btn) return;
+    btn.addEventListener("click", function(){
+      var text = btn.getAttribute("data-copy");
+      navigator.clipboard.writeText(text).then(function(){
+        btn.classList.add("copied");
+        var t = document.getElementById(labelId);
+        var prev = t.textContent;
+        t.textContent = "Kopiert!";
+        setTimeout(function(){ btn.classList.remove("copied"); t.textContent = prev; }, 1800);
+      }).catch(function(){
+        var t = document.getElementById(labelId);
+        t.textContent = "Strg+C drücken";
+      });
+    });
+  }
+  wireCopy("quickCopy","quickCp","quickCpTxt");
+  wireCopy("fullCopy","fullCp","fullCpTxt");
+})();
+</script>
+</body>
+</html>
